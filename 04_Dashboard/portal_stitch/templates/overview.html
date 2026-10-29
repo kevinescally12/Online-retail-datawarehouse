@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% block content %}
+<section class="panel hero"><div><span class="tag mono">ARQUITECTURA REAL · KIMBALL</span><h1>Online Retail<br>Data Warehouse y plataforma BI</h1><p>Del archivo original al análisis multidimensional. Cada etapa se identifica por su función real y por la evidencia disponible, sin presentar una validación como una carga ejecutada.</p></div><div class="version-card"><small class="mono">ENTREGA ACADÉMICA LOCAL</small><strong>Excel → SQL → SSAS → BI</strong><span>Windows integrada · solo lectura desde el portal</span></div></section>
+<section class="panel"><div class="panel-heading"><div><span class="tag mono">RECORRIDO END-TO-END</span><h2>Un origen, un modelo estrella y dos interfaces</h2></div></div>
+<div class="pipeline-grid">
+{% for title,subtitle,body in [
+('01 · EXCEL','online_retail_II.xlsx','Dos hojas: Year 2009-2010 y Year 2010-2011. Se conserva el orden y la repetición interna.'),
+('02 · PYTHON','cargar_retail.py','Valida encabezados, tipos y longitudes. Inserta ambas hojas completas por lotes, con transacción y rechazo de staging ocupado.'),
+('03 · STAGING','OnlineRetail_Origen','staging.OperacionesRetail conserva procedencia, identificadores, fecha, cantidad y precio con sus signos.'),
+('04 · SQL DIMENSIONAL','OnlineRetail_DW','Cinco dimensiones y FactOperacion. La carga de hechos aplica el corte de solapamiento y las reglas verificadas.'),
+('05 · SSAS','CuboOnlineRetail','Cubo Online Retail, dos grupos de medidas y cinco dimensiones. MOLAP y cálculos MDX verificados.'),
+('06 · DASHBOARD','Streamlit + portal Bootstrap','Ambas interfaces reutilizan la misma conexión y fábricas de consultas MDX. No hay consultas de negocio a SQL desde el navegador.')
+] %}<article class="pipeline-step"><span class="mono">{{title}}</span><h3>{{subtitle}}</h3><p>{{body}}</p></article>{% endfor %}</div>
+</section>
+<div class="row g-4"><div class="col-lg-7"><section class="panel h-100"><span class="tag tag-amber mono">LÍMITE DOCUMENTADO</span><h2>La instantánea no es un ETL dimensional dinámico</h2><p>El SQL 03 conserva los miembros, claves y atributos de las dimensiones existentes. No calcula nuevos miembros para cualquier archivo futuro. Siguen pendientes las reglas históricas completas de categorías especiales, textos de respaldo sin descripción positiva y asignación de claves.</p><p>Este portal consulta el cubo procesado; no reconstruye esas reglas ni ejecuta recargas.</p><a href="{{url_for('page',section='etl')}}" class="text-link">Examinar reglas y evidencias →</a></section></div>
+<div class="col-lg-5"><section class="panel h-100"><span class="tag tag-green mono">EVIDENCIA HISTÓRICA</span><h2>Conciliación documentada</h2><div class="audit-total">{{audit.approved}} <span>/ {{audit.total}}</span></div><p>{{audit.contexts}} contextos · tolerancia registrada: {{audit.tolerance}}<br>{{audit.date}}</p><p class="meta-note">Esta evidencia no es una nueva ejecución de las pruebas del cubo ni una comprobación de conexión en esta página.</p><a href="{{url_for('page',section='audit')}}" class="text-link">Abrir auditoría y descargas →</a></section></div></div>
+{% endblock %}

@@ -1,0 +1,22 @@
+﻿[
+    {
+        "Archivo":  "04_Dashboard/queries.py",
+        "SHA256":  "2EA12174BD81C4AC5ABDC548E03E9EABAF388C493E0DC8F21D71F84F5A607EBD"
+    },
+    {
+        "Archivo":  "04_Dashboard/presentation.py",
+        "SHA256":  "476946BA371C403BE66AF7960FE0265FA3A09716F68392C714B4482EDF1D65F7"
+    },
+    {
+        "Archivo":  "04_Dashboard/connection.py",
+        "SHA256":  "FEFCF9F9C5A228D8ABE01455A3B1E4B293C285759EE67562E82C59395BA81809"
+    },
+    {
+        "Archivo":  "04_Dashboard/portal_stitch/service.py",
+        "SHA256":  "4F0D15DA3D9D6FC4FE6849266D57796538F2101110E7056E4E384F690D81BAF3"
+    },
+    {
+        "Archivo":  "04_Dashboard/portal_stitch/figures.py",
+        "SHA256":  "2E9EBCCEAEE4E5D8602883515F6D87487E5B6787CF94CC374C7F326412FE4DF8"
+    }
+]

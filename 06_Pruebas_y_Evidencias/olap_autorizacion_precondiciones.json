@@ -1,0 +1,7 @@
+﻿{
+    "Fecha":  "2026-10-29T12:43:24.6827639-05:00",
+    "Servicio":  "MSSQLServerOLAPService",
+    "IdentidadReal":  "NT Service\\MSSQLServerOLAPService",
+    "Suplantacion":  "ImpersonateServiceAccount",
+    "Cadena":  "Provider=MSOLEDBSQL;Data Source=localhost;Initial Catalog=OnlineRetail_DW;Integrated Security=SSPI;Use Encryption for Data=True;Trust Server Certificate=True;"
+}

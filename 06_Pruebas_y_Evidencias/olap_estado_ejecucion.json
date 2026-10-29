@@ -1,0 +1,17 @@
+﻿{
+    "Fecha":  "2026-10-29T12:43:47.1966783-05:00",
+    "Servidor":  "localhost",
+    "Base":  "CuboOnlineRetail",
+    "CompiladoSHA256":  "0C52B2491C81581E335F023F3B98B06CBF69372817ABB5B6A66B92BF4A6AB9C0",
+    "Despliegue":  "BASE_EXISTENTE_NO_MODIFICADA",
+    "Procesamiento":  "REALIZADO",
+    "EstadoBase":  "Processed",
+    "EstadoCubos":  [
+                        {
+                            "ID":  "OnlineRetail",
+                            "Estado":  "Processed",
+                            "UltimoProceso":  "2026-10-29T12:43:50.9633330-05:00"
+                        }
+                    ],
+    "FechaVerificacion":  "2026-10-29T12:48:48.3182981-05:00"
+}

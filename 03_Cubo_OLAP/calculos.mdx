@@ -1,0 +1,17 @@
+﻿CALCULATE;
+CREATE MEMBER CURRENTCUBE.[Measures].[Importe Ventas y cargos] AS
+ ([Measures].[Importe],[TipoOperacion].[TipoOperacion].&[1]), FORMAT_STRING='#,##0.0000;-#,##0.0000', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Importe Cancelacion] AS
+ ([Measures].[Importe],[TipoOperacion].[TipoOperacion].&[2]), FORMAT_STRING='#,##0.0000;-#,##0.0000', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Neto Ventas y cargos mas Cancelacion] AS
+ [Measures].[Importe Ventas y cargos]+[Measures].[Importe Cancelacion], FORMAT_STRING='#,##0.0000;-#,##0.0000', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Importe Ajuste contable] AS
+ ([Measures].[Importe],[TipoOperacion].[TipoOperacion].&[3]), FORMAT_STRING='#,##0.0000;-#,##0.0000', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Operaciones Precio cero] AS
+ ([Measures].[Conteo operaciones],[TipoOperacion].[TipoOperacion].&[4]), FORMAT_STRING='#,##0', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Importe Precio cero] AS
+ ([Measures].[Importe],[TipoOperacion].[TipoOperacion].&[4]), FORMAT_STRING='#,##0.0000;-#,##0.0000', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Operaciones Por revisar] AS
+ ([Measures].[Conteo operaciones],[TipoOperacion].[TipoOperacion].&[5]), FORMAT_STRING='#,##0', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Importe Por revisar] AS
+ ([Measures].[Importe],[TipoOperacion].[TipoOperacion].&[5]), FORMAT_STRING='#,##0.0000;-#,##0.0000', VISIBLE=1;

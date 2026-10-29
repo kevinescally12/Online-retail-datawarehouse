@@ -1,0 +1,1 @@
+﻿System.Management.Automation.RuntimeException: Error interno: La operación no ha terminado correctamente.

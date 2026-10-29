@@ -1,0 +1,4 @@
+SELECT {[Measures].[Importe],[Measures].[Cantidad firmada],
+ [Measures].[Conteo operaciones],[Measures].[Facturas distintas]} ON COLUMNS,
+ [TipoOperacion].[TipoOperacion].[TipoOperacion].MEMBERS ON ROWS
+FROM [Online Retail];

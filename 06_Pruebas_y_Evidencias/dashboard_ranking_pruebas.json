@@ -1,0 +1,16 @@
+﻿{
+    "fecha":  "2026-10-29T13:19:05.768166-05:00",
+    "pruebas":  4,
+    "fallos":  0,
+    "errores":  0,
+    "archivos_conexion_consultas_config_sin_cambios":  {
+                                                           "queries.py":  true,
+                                                           "connection.py":  true,
+                                                           "config.py":  true
+                                                       },
+    "alcance":  "2 pruebas unitarias con casos sintéticos; 1 MDX real Spain; 1 AppTest con SSAS real. Sin revisión visual.",
+    "detalles":  [
+
+                 ],
+    "revision_visual":  "Pendiente. cua.getState volvió a informar native pipe no disponible (os error 2) y The browser access host is unavailable."
+}

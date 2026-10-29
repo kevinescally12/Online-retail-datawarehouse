@@ -1,0 +1,9 @@
+﻿{
+    "Fecha":  "2026-10-29T15:43:06.3180315-05:00",
+    "Fuente":  "https://archive.ics.uci.edu/dataset/502/online%2Bretail%2Bii",
+    "Documento":  "Online Retail II — UCI Machine Learning Repository",
+    "DOI":  "10.24432/C5CG6D",
+    "UnidadDocumentada":  "libras esterlinas",
+    "Extracto":  "Product price per unit in sterling",
+    "Aplicacion":  "GBP/£ en el portal por trazabilidad PrecioUnitario conservado y Cantidad * PrecioUnitario; sin conversion de moneda. No modifica el cubo ni Streamlit."
+}

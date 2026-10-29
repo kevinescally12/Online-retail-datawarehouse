@@ -1,0 +1,780 @@
+{
+  "fecha": "2026-10-29T13:00:13.971145-05:00",
+  "miembros": {
+    "dates": 739,
+    "country": 44,
+    "product": 5132,
+    "type": 5
+  },
+  "desde": "2009-12-01",
+  "hasta": "2011-12-09",
+  "totales": [
+    {
+      "members": [],
+      "values": {
+        "Importe": "18909762.118",
+        "Cantidad firmada": 10441844,
+        "Conteo operaciones": 1044848,
+        "Facturas distintas": 53628,
+        "Importe Ventas y cargos": "20533741.918",
+        "Importe Cancelacion": "-1465677.23",
+        "Neto Ventas y cargos mas Cancelacion": "19068064.688",
+        "Importe Ajuste contable": "-158676.14",
+        "Operaciones Precio cero": 6024,
+        "Importe Precio cero": "0",
+        "Operaciones Por revisar": 1,
+        "Importe Por revisar": "373.57"
+      }
+    }
+  ],
+  "grupos": {
+    "Mes": [
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2010]&[4]",
+            "caption": "Abril"
+          }
+        ],
+        "values": {
+          "Importe": "590580.432",
+          "Cantidad firmada": 351971,
+          "Conteo operaciones": 34057,
+          "Facturas distintas": 1892
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2011]&[4]",
+            "caption": "Abril"
+          }
+        ],
+        "values": {
+          "Importe": "493207.121",
+          "Cantidad firmada": 289098,
+          "Conteo operaciones": 29916,
+          "Facturas distintas": 1744
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2010]&[8]",
+            "caption": "Agosto"
+          }
+        ],
+        "values": {
+          "Importe": "656776.34",
+          "Cantidad firmada": 451803,
+          "Conteo operaciones": 33306,
+          "Facturas distintas": 1877
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2011]&[8]",
+            "caption": "Agosto"
+          }
+        ],
+        "values": {
+          "Importe": "682680.51",
+          "Cantidad firmada": 406199,
+          "Conteo operaciones": 35284,
+          "Facturas distintas": 1737
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2009]&[12]",
+            "caption": "Diciembre"
+          }
+        ],
+        "values": {
+          "Importe": "799847.11",
+          "Cantidad firmada": 420088,
+          "Conteo operaciones": 45228,
+          "Facturas distintas": 2330
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2010]&[12]",
+            "caption": "Diciembre"
+          }
+        ],
+        "values": {
+          "Importe": "748957.02",
+          "Cantidad firmada": 342228,
+          "Conteo operaciones": 42481,
+          "Facturas distintas": 2025
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2011]&[12]",
+            "caption": "Diciembre"
+          }
+        ],
+        "values": {
+          "Importe": "433686.01",
+          "Cantidad firmada": 226334,
+          "Conteo operaciones": 25526,
+          "Facturas distintas": 1015
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2010]&[1]",
+            "caption": "Enero"
+          }
+        ],
+        "values": {
+          "Importe": "624032.892",
+          "Cantidad firmada": 375363,
+          "Conteo operaciones": 31555,
+          "Facturas distintas": 1633
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2011]&[1]",
+            "caption": "Enero"
+          }
+        ],
+        "values": {
+          "Importe": "560000.26",
+          "Cantidad firmada": 308966,
+          "Conteo operaciones": 35147,
+          "Facturas distintas": 1476
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2010]&[2]",
+            "caption": "Febrero"
+          }
+        ],
+        "values": {
+          "Importe": "533091.426",
+          "Cantidad firmada": 368402,
+          "Conteo operaciones": 29388,
+          "Facturas distintas": 1969
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2011]&[2]",
+            "caption": "Febrero"
+          }
+        ],
+        "values": {
+          "Importe": "498062.65",
+          "Cantidad firmada": 277989,
+          "Conteo operaciones": 27707,
+          "Facturas distintas": 1393
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2010]&[7]",
+            "caption": "Julio"
+          }
+        ],
+        "values": {
+          "Importe": "575236.36",
+          "Cantidad firmada": 302201,
+          "Conteo operaciones": 33383,
+          "Facturas distintas": 2017
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2011]&[7]",
+            "caption": "Julio"
+          }
+        ],
+        "values": {
+          "Importe": "681300.111",
+          "Cantidad firmada": 391116,
+          "Conteo operaciones": 39518,
+          "Facturas distintas": 1927
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2010]&[6]",
+            "caption": "Junio"
+          }
+        ],
+        "values": {
+          "Importe": "679786.61",
+          "Cantidad firmada": 388253,
+          "Conteo operaciones": 39983,
+          "Facturas distintas": 2216
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2011]&[6]",
+            "caption": "Junio"
+          }
+        ],
+        "values": {
+          "Importe": "691123.12",
+          "Cantidad firmada": 341623,
+          "Conteo operaciones": 36874,
+          "Facturas distintas": 2012
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2010]&[3]",
+            "caption": "Marzo"
+          }
+        ],
+        "values": {
+          "Importe": "765848.761",
+          "Cantidad firmada": 489370,
+          "Conteo operaciones": 41511,
+          "Facturas distintas": 2367
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2011]&[3]",
+            "caption": "Marzo"
+          }
+        ],
+        "values": {
+          "Importe": "683267.08",
+          "Cantidad firmada": 351872,
+          "Conteo operaciones": 36748,
+          "Facturas distintas": 1983
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2010]&[5]",
+            "caption": "Mayo"
+          }
+        ],
+        "values": {
+          "Importe": "615322.83",
+          "Cantidad firmada": 364095,
+          "Conteo operaciones": 35323,
+          "Facturas distintas": 2418
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2011]&[5]",
+            "caption": "Mayo"
+          }
+        ],
+        "values": {
+          "Importe": "723333.51",
+          "Cantidad firmada": 380391,
+          "Conteo operaciones": 37030,
+          "Facturas distintas": 2162
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2010]&[11]",
+            "caption": "Noviembre"
+          }
+        ],
+        "values": {
+          "Importe": "1422654.642",
+          "Cantidad firmada": 673856,
+          "Conteo operaciones": 78015,
+          "Facturas distintas": 3669
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2011]&[11]",
+            "caption": "Noviembre"
+          }
+        ],
+        "values": {
+          "Importe": "1461756.25",
+          "Cantidad firmada": 740286,
+          "Conteo operaciones": 84711,
+          "Facturas distintas": 3462
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2010]&[10]",
+            "caption": "Octubre"
+          }
+        ],
+        "values": {
+          "Importe": "1045168.35",
+          "Cantidad firmada": 601729,
+          "Conteo operaciones": 59098,
+          "Facturas distintas": 2965
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2011]&[10]",
+            "caption": "Octubre"
+          }
+        ],
+        "values": {
+          "Importe": "1070704.67",
+          "Cantidad firmada": 570532,
+          "Conteo operaciones": 60742,
+          "Facturas distintas": 2637
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2010]&[9]",
+            "caption": "Septiembre"
+          }
+        ],
+        "values": {
+          "Importe": "853650.431",
+          "Cantidad firmada": 478262,
+          "Conteo operaciones": 42091,
+          "Facturas distintas": 2375
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Fecha].[Mes].&[2011]&[9]",
+            "caption": "Septiembre"
+          }
+        ],
+        "values": {
+          "Importe": "1019687.622",
+          "Cantidad firmada": 549817,
+          "Conteo operaciones": 50226,
+          "Facturas distintas": 2327
+        }
+      }
+    ],
+    "País": [
+      {
+        "members": [
+          {
+            "unique": "[Pais].[Pais].&[5]",
+            "caption": "United Kingdom"
+          }
+        ],
+        "values": {
+          "Importe": "16038601.657",
+          "Cantidad firmada": 8544941,
+          "Conteo operaciones": 959983,
+          "Facturas distintas": 49108
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Pais].[Pais].&[37]",
+            "caption": "EIRE"
+          }
+        ],
+        "values": {
+          "Importe": "610244.27",
+          "Cantidad firmada": 327618,
+          "Conteo operaciones": 17689,
+          "Facturas distintas": 806
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Pais].[Pais].&[14]",
+            "caption": "Netherlands"
+          }
+        ],
+        "values": {
+          "Importe": "548332.35",
+          "Cantidad firmada": 381854,
+          "Conteo operaciones": 5138,
+          "Facturas distintas": 250
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Pais].[Pais].&[23]",
+            "caption": "Germany"
+          }
+        ],
+        "values": {
+          "Importe": "412517.831",
+          "Cantidad firmada": 222030,
+          "Conteo operaciones": 17363,
+          "Facturas distintas": 1095
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Pais].[Pais].&[17]",
+            "caption": "France"
+          }
+        ],
+        "values": {
+          "Importe": "321928.53",
+          "Cantidad firmada": 181768,
+          "Conteo operaciones": 14059,
+          "Facturas distintas": 746
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Pais].[Pais].&[33]",
+            "caption": "Australia"
+          }
+        ],
+        "values": {
+          "Importe": "166511.92",
+          "Cantidad firmada": 103385,
+          "Conteo operaciones": 1891,
+          "Facturas distintas": 117
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Pais].[Pais].&[12]",
+            "caption": "Switzerland"
+          }
+        ],
+        "values": {
+          "Importe": "99425.36",
+          "Cantidad firmada": 52268,
+          "Conteo operaciones": 3183,
+          "Facturas distintas": 123
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Pais].[Pais].&[6]",
+            "caption": "Spain"
+          }
+        ],
+        "values": {
+          "Importe": "91064.76",
+          "Cantidad firmada": 44689,
+          "Conteo operaciones": 3766,
+          "Facturas distintas": 188
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Pais].[Pais].&[34]",
+            "caption": "Sweden"
+          }
+        ],
+        "values": {
+          "Importe": "87809.42",
+          "Cantidad firmada": 87875,
+          "Conteo operaciones": 1364,
+          "Facturas distintas": 129
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Pais].[Pais].&[39]",
+            "caption": "Denmark"
+          }
+        ],
+        "values": {
+          "Importe": "64459.59",
+          "Cantidad firmada": 234764,
+          "Conteo operaciones": 797,
+          "Facturas distintas": 53
+        }
+      }
+    ],
+    "Tipo de operación": [
+      {
+        "members": [
+          {
+            "unique": "[TipoOperacion].[TipoOperacion].&[3]",
+            "caption": "Ajuste contable"
+          }
+        ],
+        "values": {
+          "Importe": "-158676.14",
+          "Cantidad firmada": 5,
+          "Conteo operaciones": 5,
+          "Facturas distintas": 5
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[TipoOperacion].[TipoOperacion].&[2]",
+            "caption": "Cancelacion"
+          }
+        ],
+        "values": {
+          "Importe": "-1465677.23",
+          "Cantidad firmada": -478964,
+          "Conteo operaciones": 19164,
+          "Facturas distintas": 8291
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[TipoOperacion].[TipoOperacion].&[5]",
+            "caption": "Por revisar"
+          }
+        ],
+        "values": {
+          "Importe": "373.57",
+          "Cantidad firmada": 1,
+          "Conteo operaciones": 1,
+          "Facturas distintas": 1
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[TipoOperacion].[TipoOperacion].&[4]",
+            "caption": "Precio cero"
+          }
+        ],
+        "values": {
+          "Importe": "0",
+          "Cantidad firmada": -318544,
+          "Conteo operaciones": 6024,
+          "Facturas distintas": 5379
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[TipoOperacion].[TipoOperacion].&[1]",
+            "caption": "Ventas y cargos"
+          }
+        ],
+        "values": {
+          "Importe": "20533741.918",
+          "Cantidad firmada": 11239346,
+          "Conteo operaciones": 1019654,
+          "Facturas distintas": 40077
+        }
+      }
+    ],
+    "Código de producto": [
+      {
+        "members": [
+          {
+            "unique": "[Producto].[Codigo].&[22423]",
+            "caption": "22423"
+          },
+          {
+            "unique": "[Producto].[Categoria].&[Por clasificar]",
+            "caption": "Por clasificar"
+          }
+        ],
+        "values": {
+          "Importe": "314513.47",
+          "Cantidad firmada": 24735,
+          "Conteo operaciones": 4327,
+          "Facturas distintas": 4272
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Producto].[Codigo].&[DOT]",
+            "caption": "DOT"
+          },
+          {
+            "unique": "[Producto].[Categoria].&[Envío o transporte]",
+            "caption": "Envío o transporte"
+          }
+        ],
+        "values": {
+          "Importe": "309844.1",
+          "Cantidad firmada": 2917,
+          "Conteo operaciones": 1425,
+          "Facturas distintas": 1425
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Producto].[Codigo].&[85123A]",
+            "caption": "85123A"
+          },
+          {
+            "unique": "[Producto].[Categoria].&[Por clasificar]",
+            "caption": "Por clasificar"
+          }
+        ],
+        "values": {
+          "Importe": "252122.83",
+          "Cantidad firmada": 94759,
+          "Conteo operaciones": 5810,
+          "Facturas distintas": 5606
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Producto].[Codigo].&[85099b]",
+            "caption": "85099b"
+          },
+          {
+            "unique": "[Producto].[Categoria].&[Por clasificar]",
+            "caption": "Por clasificar"
+          }
+        ],
+        "values": {
+          "Importe": "180830.85",
+          "Cantidad firmada": 94744,
+          "Conteo operaciones": 4172,
+          "Facturas distintas": 4102
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Producto].[Codigo].&[47566]",
+            "caption": "47566"
+          },
+          {
+            "unique": "[Producto].[Categoria].&[Por clasificar]",
+            "caption": "Por clasificar"
+          }
+        ],
+        "values": {
+          "Importe": "147157.43",
+          "Cantidad firmada": 27129,
+          "Conteo operaciones": 2744,
+          "Facturas distintas": 2702
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Producto].[Codigo].&[84879]",
+            "caption": "84879"
+          },
+          {
+            "unique": "[Producto].[Categoria].&[Por clasificar]",
+            "caption": "Por clasificar"
+          }
+        ],
+        "values": {
+          "Importe": "128907.01",
+          "Cantidad firmada": 79189,
+          "Conteo operaciones": 2896,
+          "Facturas distintas": 2829
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Producto].[Codigo].&[22086]",
+            "caption": "22086"
+          },
+          {
+            "unique": "[Producto].[Categoria].&[Por clasificar]",
+            "caption": "Por clasificar"
+          }
+        ],
+        "values": {
+          "Importe": "116422.49",
+          "Cantidad firmada": 34476,
+          "Conteo operaciones": 2111,
+          "Facturas distintas": 2036
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Producto].[Codigo].&[POST]",
+            "caption": "POST"
+          },
+          {
+            "unique": "[Producto].[Categoria].&[Envío o transporte]",
+            "caption": "Envío o transporte"
+          }
+        ],
+        "values": {
+          "Importe": "110430.41",
+          "Cantidad firmada": 10011,
+          "Conteo operaciones": 2086,
+          "Facturas distintas": 2084
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Producto].[Codigo].&[79321]",
+            "caption": "79321"
+          },
+          {
+            "unique": "[Producto].[Categoria].&[Por clasificar]",
+            "caption": "Por clasificar"
+          }
+        ],
+        "values": {
+          "Importe": "80237.48",
+          "Cantidad firmada": 15729,
+          "Conteo operaciones": 1184,
+          "Facturas distintas": 1172
+        }
+      },
+      {
+        "members": [
+          {
+            "unique": "[Producto].[Codigo].&[22197]",
+            "caption": "22197"
+          },
+          {
+            "unique": "[Producto].[Categoria].&[Por clasificar]",
+            "caption": "Por clasificar"
+          }
+        ],
+        "values": {
+          "Importe": "78935.92",
+          "Cantidad firmada": 78007,
+          "Conteo operaciones": 2479,
+          "Facturas distintas": 2421
+        }
+      }
+    ]
+  }
+}

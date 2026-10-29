@@ -1,0 +1,40 @@
+{
+  "fecha": "2026-10-29T21:11:21.273Z",
+  "alcance": "Pruebas unitarias JavaScript; no revisión visual",
+  "aprobadas": 8,
+  "total": 8,
+  "resultados": [
+    {
+      "prueba": "Periodo completo con meses escritos",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Día y mes ambiguos se distinguen",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Fecha bisiesta sin conversión de zona horaria",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Los doce meses escritos",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Entrada vacía se identifica como pendiente",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "URL enviada conserva fechas ISO sin intercambio",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Limpieza conserva extremos ISO",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Cuatro decimales conservados al presentar",
+      "estado": "APROBADO"
+    }
+  ]
+}

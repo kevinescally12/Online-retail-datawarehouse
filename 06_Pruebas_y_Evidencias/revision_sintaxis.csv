@@ -1,0 +1,5 @@
+﻿"Archivo","Prueba","Estado","Lotes","Limitacion"
+"01_crear_origen.sql","SET PARSEONLY ON","APROBADO","9","Solo sintaxis, USE omitido y variables sustituidas; no comprueba objetos, permisos o carga"
+"02_crear_modelo_estrella.sql","SET PARSEONLY ON","APROBADO","29","Solo sintaxis, USE omitido y variables sustituidas; no comprueba objetos, permisos o carga"
+"03_cargar_dimensiones.sql","SET PARSEONLY ON","APROBADO","2","Solo sintaxis, USE omitido y variables sustituidas; no comprueba objetos, permisos o carga"
+"04_cargar_hechos.sql","SET PARSEONLY ON","APROBADO","2","Solo sintaxis, USE omitido y variables sustituidas; no comprueba objetos, permisos o carga"

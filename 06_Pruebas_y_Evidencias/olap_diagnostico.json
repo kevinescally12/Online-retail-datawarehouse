@@ -1,0 +1,53 @@
+﻿{
+    "Fecha":  "2026-10-29T12:34:36.4531907-05:00",
+    "IdentidadServicio":  "NT Service\\MSSQLServerOLAPService",
+    "EstadoServicio":  "Running",
+    "OLEDBConUsuarioActual":  "APROBADO",
+    "ConteoHechos":  1044848,
+    "LoginServicioEncontrado":  0,
+    "UsuarioServicioEncontrado":  0,
+    "HechosConMedidasNulas":  0,
+    "EstadoSSAS":  "Unprocessed",
+    "Dimensiones":  [
+                        "DimFecha",
+                        "DimProducto",
+                        "DimCliente",
+                        "DimPais",
+                        "DimTipoOperacion"
+                    ],
+    "GruposMedidas":  [
+                          {
+                              "ID":  "Operaciones",
+                              "Particiones":  1,
+                              "Medidas":  [
+                                              {
+                                                  "Nombre":  "Importe",
+                                                  "Agregacion":  "Sum",
+                                                  "Tipo":  "Currency"
+                                              },
+                                              {
+                                                  "Nombre":  "Cantidad firmada",
+                                                  "Agregacion":  "Sum",
+                                                  "Tipo":  "BigInt"
+                                              },
+                                              {
+                                                  "Nombre":  "Conteo operaciones",
+                                                  "Agregacion":  "Count",
+                                                  "Tipo":  "BigInt"
+                                              }
+                                          ]
+                          },
+                          {
+                              "ID":  "Facturas",
+                              "Particiones":  1,
+                              "Medidas":  [
+                                              {
+                                                  "Nombre":  "Facturas distintas",
+                                                  "Agregacion":  "DistinctCount",
+                                                  "Tipo":  "BigInt"
+                                              }
+                                          ]
+                          }
+                      ],
+    "OrigenImpersonacion":  "ImpersonateServiceAccount"
+}

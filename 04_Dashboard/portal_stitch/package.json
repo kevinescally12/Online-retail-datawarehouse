@@ -1,0 +1,6 @@
+{
+  "name": "online-retail-portal-local",
+  "private": true,
+  "type": "module",
+  "scripts": {"test": "node frontend_tests.mjs"}
+}

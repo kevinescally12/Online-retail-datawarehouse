@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Portal local del proyecto Online Retail: analítica SSAS y evidencias de entrega.">
+  <title>{% block title %}Online Retail · Portal BI{% endblock %}</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Ctext x='6' y='24' fill='white' font-size='24'%3E▦%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="{{ url_for('static',filename='vendor/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/portal.css') }}">
+  <script src="{{ url_for('static',filename='vendor/bootstrap.bundle.min.js') }}" defer></script>
+  <script src="{{ url_for('static',filename='js/navigation.js') }}" defer></script>
+  {% block scripts %}{% endblock %}
+</head>
+<body data-section="{{ section }}">
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<aside id="sidebar" class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" aria-label="Navegación principal">
+  <div class="brand-block">
+    <button type="button" class="btn-close d-lg-none float-end" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Cerrar navegación"></button>
+    <div class="d-flex align-items-center gap-3"><div class="brand-symbol" aria-hidden="true">▦</div>
+      <div><strong>RETAIL DWH</strong><small class="mono">RALPH KIMBALL BI</small></div><span class="tag ms-auto">LOCAL</span></div>
+    <p>Portal de entrega y showroom técnico</p>
+    <div class="history-badge {% if audit.total and audit.approved == audit.total %}history-success{% endif %}">
+      <strong>✓ Conciliación histórica</strong><span class="mono">{{ audit.approved }}/{{ audit.total }} documentadas</span>
+      <small>{{ audit.date|stamp }}</small>
+    </div>
+    <div class="tech-badge">⬡ &nbsp; SSAS multidimensional <small>Fuente y estado identificados por evidencia</small></div>
+  </div>
+  <div class="nav-label mono">MÓDULOS DE ENTREGA</div>
+  <nav class="sidebar-nav" aria-label="Secciones">
+    {% for key,label,icon in nav %}<a href="{{ url_for('page',section=key) }}" class="nav-item {% if key == section %}active{% endif %}" {% if key == section %}aria-current="page"{% endif %}>
+      <span class="nav-symbol" aria-hidden="true">{{ icon }}</span><span>{{ label }}</span>{% if key == 'analytics' %}<span class="data-tag">BI</span>{% endif %}</a>{% endfor %}
+  </nav>
+  <div class="sidebar-foot"><div class="mono">CONSULTA ACTUAL</div><span id="sidebar-status">SSAS sin comprobar en esta página</span>
+    <hr><small>Windows integrada · solo lectura<br>Servicio restringido al equipo local</small></div>
+</aside>
+<header class="topbar">
+  <button class="btn btn-outline-secondary d-lg-none menu-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Abrir navegación">☰</button>
+  <div class="d-flex align-items-center gap-3"><span class="tag edition">EDICIÓN ACADÉMICA</span><span class="top-caption">Arquitectura de datos e inteligencia de negocios</span></div>
+  <a class="btn btn-primary btn-sm" href="{{ url_for('download',item_id='diccionario-portal') }}">↓ &nbsp; Diccionario</a>
+</header>
+<main id="main" class="portal-main">
+  {% block content %}{% endblock %}
+  <footer class="page-footer">Online Retail · Entrega académica · Evidencia histórica y consultas actuales se presentan por separado.</footer>
+</main>
+</body></html>

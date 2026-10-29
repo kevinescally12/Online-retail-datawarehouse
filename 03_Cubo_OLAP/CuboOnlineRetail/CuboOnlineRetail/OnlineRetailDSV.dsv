@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>OnlineRetailDSV</ID>
+  <Name>OnlineRetail DSV</Name>
+  <DataSourceID>OnlineRetailDW</DataSourceID>
+  <Schema>
+    <xs:schema id="OnlineRetailDSV" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="OnlineRetailDSV" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_DimFecha" msprop:DbTableName="DimFecha" msprop:FriendlyName="DimFecha" msprop:TableType="Table" msprop:DbSchemaName="dbo">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="FechaKey" msprop:DbColumnName="FechaKey" type="xs:int" />
+                  <xs:element name="Fecha" msprop:DbColumnName="Fecha" type="xs:dateTime" />
+                  <xs:element name="Dia" msprop:DbColumnName="Dia" type="xs:unsignedByte" />
+                  <xs:element name="Mes" msprop:DbColumnName="Mes" type="xs:unsignedByte" />
+                  <xs:element name="NombreMes" msprop:DbColumnName="NombreMes">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Trimestre" msprop:DbColumnName="Trimestre" type="xs:unsignedByte" />
+                  <xs:element name="Anio" msprop:DbColumnName="Anio" type="xs:short" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimProducto" msprop:DbTableName="DimProducto" msprop:FriendlyName="DimProducto" msprop:TableType="Table" msprop:DbSchemaName="dbo">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ProductoKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="ProductoKey" type="xs:int" />
+                  <xs:element name="CodigoProducto" msprop:DbColumnName="CodigoProducto">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DescripcionProducto" msprop:DbColumnName="DescripcionProducto">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="CategoriaCodigo" msprop:DbColumnName="CategoriaCodigo">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimCliente" msprop:DbTableName="DimCliente" msprop:FriendlyName="DimCliente" msprop:TableType="Table" msprop:DbSchemaName="dbo">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ClienteKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="ClienteKey" type="xs:int" />
+                  <xs:element name="IdClienteOrigen" msprop:DbColumnName="IdClienteOrigen">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="TipoCliente" msprop:DbColumnName="TipoCliente">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimPais" msprop:DbTableName="DimPais" msprop:FriendlyName="DimPais" msprop:TableType="Table" msprop:DbSchemaName="dbo">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="PaisKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="PaisKey" type="xs:int" />
+                  <xs:element name="NombrePais" msprop:DbColumnName="NombrePais">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimTipoOperacion" msprop:DbTableName="DimTipoOperacion" msprop:FriendlyName="DimTipoOperacion" msprop:TableType="Table" msprop:DbSchemaName="dbo">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TipoOperacionKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="TipoOperacionKey" type="xs:int" />
+                  <xs:element name="NombreTipo" msprop:DbColumnName="NombreTipo">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Descripcion" msprop:DbColumnName="Descripcion">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="250" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_FactOperacion" msprop:DbTableName="FactOperacion" msprop:FriendlyName="FactOperacion" msprop:TableType="Table" msprop:DbSchemaName="dbo">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="OperacionKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:DbColumnName="OperacionKey" type="xs:long" />
+                  <xs:element name="IdCargaOrigen" msprop:DbColumnName="IdCargaOrigen" type="xs:long" />
+                  <xs:element name="HojaOrigen" msprop:DbColumnName="HojaOrigen">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NumeroFactura" msprop:DbColumnName="NumeroFactura" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="DescripcionOriginal" msprop:DbColumnName="DescripcionOriginal" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="FechaKey" msprop:DbColumnName="FechaKey" type="xs:int" />
+                  <xs:element name="ProductoKey" msprop:DbColumnName="ProductoKey" type="xs:int" />
+                  <xs:element name="ClienteKey" msprop:DbColumnName="ClienteKey" type="xs:int" />
+                  <xs:element name="PaisKey" msprop:DbColumnName="PaisKey" type="xs:int" />
+                  <xs:element name="TipoOperacionKey" msprop:DbColumnName="TipoOperacionKey" type="xs:int" />
+                  <xs:element name="Cantidad" msprop:DbColumnName="Cantidad" type="xs:int" minOccurs="0" />
+                  <xs:element name="PrecioUnitario" msprop:DbColumnName="PrecioUnitario" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="Importe" msprop:DbColumnName="Importe" type="xs:decimal" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimFecha" />
+          <xs:field xpath="FechaKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimProducto_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimProducto" />
+          <xs:field xpath="ProductoKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimCliente_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimCliente" />
+          <xs:field xpath="ClienteKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimPais_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimPais" />
+          <xs:field xpath="PaisKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimTipoOperacion_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimTipoOperacion" />
+          <xs:field xpath="TipoOperacionKey" />
+        </xs:unique>
+        <xs:unique name="dbo_FactOperacion_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_FactOperacion" />
+          <xs:field xpath="OperacionKey" />
+        </xs:unique>
+        <xs:keyref name="FK_Fact_DimTipoOperacion" refer="dbo_DimTipoOperacion_Constraint1">
+          <xs:selector xpath=".//dbo_FactOperacion" />
+          <xs:field xpath="TipoOperacionKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_DimPais" refer="dbo_DimPais_Constraint1">
+          <xs:selector xpath=".//dbo_FactOperacion" />
+          <xs:field xpath="PaisKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_DimCliente" refer="dbo_DimCliente_Constraint1">
+          <xs:selector xpath=".//dbo_FactOperacion" />
+          <xs:field xpath="ClienteKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_DimProducto" refer="dbo_DimProducto_Constraint1">
+          <xs:selector xpath=".//dbo_FactOperacion" />
+          <xs:field xpath="ProductoKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_Fact_DimFecha" refer="Constraint1">
+          <xs:selector xpath=".//dbo_FactOperacion" />
+          <xs:field xpath="FechaKey" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <OnlineRetailDSV xmlns="" />
+  </Schema>
+</DataSourceView>

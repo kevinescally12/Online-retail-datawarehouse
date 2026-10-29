@@ -1,0 +1,64 @@
+{
+  "pais": "Spain",
+  "titulos": [
+    "01/12/2009 — 09/12/2011",
+    "Evolución mensual del importe observado",
+    "Hasta 10 países con mayor importe",
+    "Códigos · 10 mayores importes con signo",
+    "Importe observado por tipo de operación",
+    "Detalle agregado y exportación"
+  ],
+  "eje_productos": {
+    "tickfont": {
+      "size": 12
+    },
+    "type": "category",
+    "categoryorder": "array",
+    "categoryarray": [
+      "POST",
+      "84997d",
+      "84997c",
+      "22423",
+      "84997B",
+      "84879",
+      "84997a",
+      "20728",
+      "84760L",
+      "22341"
+    ],
+    "autorange": "reversed",
+    "tickmode": "array",
+    "tickvals": [
+      "POST",
+      "84997d",
+      "84997c",
+      "22423",
+      "84997B",
+      "84879",
+      "84997a",
+      "20728",
+      "84760L",
+      "22341"
+    ],
+    "ticktext": [
+      "POST",
+      "84997d",
+      "84997c",
+      "22423",
+      "84997B",
+      "84879",
+      "84997a",
+      "20728",
+      "84760L",
+      "22341"
+    ],
+    "automargin": true,
+    "title": {
+      "text": "Código de producto"
+    }
+  },
+  "barras_productos": 10,
+  "barras_paises": 1,
+  "excepciones": 0,
+  "errores": 0
+}

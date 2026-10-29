@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Gráficos analíticos · Online Retail{% endblock %}
+{% block scripts %}<script src="{{url_for('static',filename='vendor/plotly.min.js')}}" defer></script><script type="module" src="{{url_for('static',filename='js/analytics.js')}}"></script>{% endblock %}
+{% block content %}
+<section class="panel hero">
+  <div class="hero-copy"><div class="eyebrow"><span class="tag">HECHOS Y DIMENSIONES</span><span id="connection-status" class="status-neutral">Consulta SSAS pendiente</span></div>
+    <h1>Análisis de Online Retail</h1>
+    <p>Explora operaciones, cargos y cancelaciones con datos reales del cubo. <strong id="hero-volume">Las cifras se consultan al aplicar los filtros.</strong></p>
+  </div>
+  <div class="metric-switch"><small class="mono">SERIE MENSUAL</small><div class="btn-group" role="group" aria-label="Medida de la serie mensual">
+    <button type="button" class="metric-button active" data-metric="Importe" aria-pressed="true">Importe</button>
+    <button type="button" class="metric-button" data-metric="Cantidad firmada" aria-pressed="false">Cantidad</button>
+    <button type="button" class="metric-button" data-metric="Conteo operaciones" aria-pressed="false">Operaciones</button></div></div>
+</section>
+<section class="panel filter-panel" aria-label="Filtros de análisis">
+<form id="filters"><div class="row g-2 align-items-start">
+  <div class="col-6 col-xl-2"><label for="start" class="form-label">Desde</label><input id="start" name="start" type="date" class="form-control" aria-describedby="date-format-hint start-readable" required><small id="start-readable" class="date-readable">Fecha pendiente</small></div>
+  <div class="col-6 col-xl-2"><label for="end" class="form-label">Hasta</label><input id="end" name="end" type="date" class="form-control" aria-describedby="date-format-hint end-readable" required><small id="end-readable" class="date-readable">Fecha pendiente</small></div>
+  <div class="col-md-6 col-xl-2"><label for="country" class="form-label">País</label><select id="country" name="country" class="form-select"><option value="">Todos los miembros</option></select></div>
+  <div class="col-md-6 col-xl-2"><label for="type" class="form-label">Tipo de operación</label><select id="type" name="type" class="form-select"><option value="">Todos los tipos</option></select></div>
+  <div class="col-xl-4"><label for="product-label" class="form-label">Código o descripción de producto</label><input id="product-label" class="form-control" list="products" placeholder="Buscar en el catálogo del cubo" autocomplete="off"><datalist id="products"></datalist></div>
+</div><div class="filter-actions"><div class="filter-notes"><p id="date-format-hint">El selector muestra el formato de tu navegador. Valor interno y envío: AAAA-MM-DD (año-mes-día).</p><p id="period-note">2009 y 2011 son periodos incompletos.</p></div><div class="filter-buttons"><button type="button" id="clear" class="btn btn-outline-secondary">Limpiar filtros</button> <button type="submit" id="apply" class="btn btn-primary">Aplicar filtros</button></div></div></form>
+</section>
+<div id="load-state" class="panel load-state" role="status"><div class="spinner-border spinner-border-sm text-primary" aria-hidden="true"></div><span>Leyendo el catálogo real del cubo…</span></div>
+<div id="error-state" class="alert alert-danger d-none" role="alert"><strong>No se pudo completar la consulta.</strong><p id="error-message"></p><button id="retry" class="btn btn-sm btn-outline-danger">Reintentar conexión</button></div>
+<div id="analytics-results" hidden aria-live="polite">
+  <div class="context-line"><span id="period-title"></span><small id="query-date"></small></div>
+  <div class="alert alert-warning compact-warning" id="type-warning" hidden>El filtro de tipo se aplica a operaciones, importe observado, gráficos y detalle. Las tarjetas por tipo fijo sustituyen ese filtro: mantienen fecha, país y producto.</div>
+  <div class="alert alert-info compact-warning">Ventas y cargos incluye conceptos distintos de mercancías. Cancelacion ya es negativa: el neto la suma con su signo.</div>
+  <div id="empty-state" class="alert alert-secondary" hidden>No hay operaciones para esta combinación. Los valores ausentes se muestran con —.</div>
+  <div class="row g-3 kpi-row">
+    {% for label,key,kind,detail in [
+      ('OPERACIONES SELECCIONADAS','Conteo operaciones','indigo','Count de filas · todos los filtros'),
+      ('IMPORTE VENTAS Y CARGOS','Importe Ventas y cargos','indigo','Tipo fijo · no solo mercancías'),
+      ('IMPORTE DE CANCELACIONES','Importe Cancelacion','amber','Tipo fijo · conserva signo negativo'),
+      ('NETO DEFINIDO','Neto Ventas y cargos mas Cancelacion','green','Ventas y cargos + Cancelacion')
+    ] %}<div class="col-sm-6 col-xxl-3"><article class="panel kpi-card {{kind}}"><div class="kpi-label mono">{{label}}<span aria-hidden="true">▧</span></div><div class="kpi-value" data-kpi="{{key}}">—</div><small>{{detail}}</small></article></div>{% endfor %}
+  </div>
+  <div class="row g-3 secondary-row">
+    {% for label,key in [('AJUSTES CONTABLES','Importe Ajuste contable'),('POR REVISAR · OPERACIONES','Operaciones Por revisar'),('PRECIO CERO · OPERACIONES','Operaciones Precio cero'),('FACTURAS DISTINTAS','Facturas distintas')] %}<div class="col-6 col-xl-3"><div class="secondary-kpi"><small class="mono">{{label}}</small><strong data-kpi="{{key}}">—</strong></div></div>{% endfor %}
+  </div>
+  <section class="panel chart-panel"><div class="panel-heading"><div><span class="tag mono">GRÁFICO 01 · TIEMPO</span><h2 id="monthly-title">Evolución mensual del importe observado</h2><p>Periodos incompletos en 2009 y 2011. Importes firmados; sin comparación interanual inventada.</p></div><span id="member-counts" class="meta-note"></span></div><div class="plot-frame"><div id="chart-monthly" class="chart" aria-label="Evolución mensual"></div><p class="chart-empty" hidden>Sin resultados para estos filtros.</p></div></section>
+  <div class="row g-4">
+    <div class="col-xl-6"><section class="panel chart-panel h-100"><div class="panel-heading"><div><span class="tag mono">GRÁFICO 02 · PRODUCTO</span><h2>Hasta 10 códigos con mayor importe</h2><p>Identificadores de texto, incluidos cargos y ajustes. Descripción completa en el tooltip.</p></div></div><div class="plot-frame"><div id="chart-products" class="chart" aria-label="Ranking categórico de códigos"></div><p class="chart-empty" hidden>Sin resultados para estos filtros.</p></div><div class="panel-note">Códigos alfanuméricos y categorías Por clasificar conservados.</div></section></div>
+    <div class="col-xl-6"><section class="panel chart-panel h-100"><div class="panel-heading"><div><span class="tag tag-green mono">GRÁFICO 03 · PAÍS</span><h2>Hasta 10 países con mayor importe</h2><p>Nombres de origen, sin normalización ISO declarada. La dimensión incluye miembros especiales.</p></div></div><div class="plot-frame"><div id="chart-countries" class="chart" aria-label="Ranking de países"></div><p class="chart-empty" hidden>Sin resultados para estos filtros.</p></div><div class="panel-note green-note">Ranking por importe con signo, no por valor absoluto.</div></section></div>
+  </div>
+  <div class="row g-4 mt-0">
+    <div class="col-xl-6"><section class="panel chart-panel h-100"><div class="panel-heading"><div><span class="tag mono">GRÁFICO 04 · TIPO DE OPERACIÓN</span><h2>Distribución de operaciones por tipo</h2><p>Porcentajes calculados con conteos reales, nunca con importes negativos ni facturas distintas.</p></div></div><div class="plot-frame"><div id="chart-types" class="chart" aria-label="Distribución de conteo de operaciones"></div><p class="chart-empty" hidden>Sin resultados para estos filtros.</p></div></section></div>
+    <div class="col-xl-6"><section class="panel chart-panel h-100"><div class="panel-heading"><div><span class="tag tag-green mono">EVIDENCIA HISTÓRICA · NO ES UNA PRUEBA ACTUAL</span><h2>Conciliación SQL frente a MDX</h2><p>{{audit.date|stamp}}</p></div></div><div class="audit-total">{{audit.approved}} <span>/ {{audit.total}}</span></div><p class="text-secondary">Comparaciones documentadas en {{audit.contexts}} contextos. La conexión de esta página se comprueba aparte con cada consulta.</p><div class="audit-grid">{% for row in audit.rows %}<span class="audit-cell {{'ok' if row.Estado == 'APROBADO' else 'pending'}}" title="{{row.Contexto}} · {{row.Clave}} · {{row.Medida}} · SQL {{row.SQL}} / MDX {{row.MDX}} · {{row.Estado}}"></span>{% endfor %}</div><a class="text-link" href="{{url_for('page',section='audit')}}">Revisar evidencias y descargar comparaciones →</a></section></div>
+  </div>
+  <section class="panel detail-panel"><div class="panel-heading"><div><span class="tag mono">RESULTADO FILTRADO</span><h2>Detalle agregado y exportación</h2><p>Sin operaciones individuales. Las facturas distintas no se suman entre filas.</p></div><div class="detail-controls"><label for="group" class="visually-hidden">Agrupación del detalle</label><select id="group" class="form-select"><option>Mes</option><option>País</option><option>Tipo de operación</option><option>Código de producto</option></select><a id="export" class="btn btn-primary disabled" aria-disabled="true">↓ CSV filtrado</a></div></div><div class="table-responsive"><table class="table table-hover align-middle" id="detail-table"><thead></thead><tbody></tbody></table></div><p id="detail-count" class="meta-note"></p></section>
+  <details class="panel definitions"><summary>Definiciones, moneda y alcance de los filtros</summary><div><p>El neto definido suma Ventas y cargos y Cancelacion; excluye Ajuste contable, Precio cero y Por revisar. Las tarjetas por tipo fijo conservan fecha, país y producto, pero reemplazan el filtro de TipoOperacion.</p><p>Importe observado: <strong data-kpi="Importe">—</strong> · Cantidad firmada: <strong data-kpi="Cantidad firmada">—</strong>. La cantidad no equivale siempre a artículos de mercancía. No se suma PrecioUnitario. SIN_IDENTIFICAR representa cliente desconocido.</p><p>Moneda: GBP, según la documentación original de <a href="https://archive.ics.uci.edu/dataset/502/online%2Bretail%2Bii" target="_blank" rel="noopener noreferrer">UCI Online Retail II</a>, que identifica el precio unitario en libras esterlinas. No se aplica conversión de moneda. CSV y tarjetas conservan precisión decimal; las coordenadas gráficas usan float solo para dibujar.</p><p>Esta página lee SSAS sin ejecutar ETL ni procesamiento. MOLAP refleja su último procesamiento correcto. El catálogo se conserva hasta 120 segundos, no se almacenan cifras de ejemplo.</p></div></details>
+</div>
+{% endblock %}

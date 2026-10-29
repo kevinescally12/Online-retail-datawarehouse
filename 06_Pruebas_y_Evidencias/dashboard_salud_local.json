@@ -1,0 +1,14 @@
+﻿{
+    "Fecha":  "2026-10-29T13:10:08.3804165-05:00",
+    "URL":  "http://127.0.0.1:8501",
+    "EstadoHTTP":  200,
+    "Contenido":  "ok",
+    "Listeners":  [
+                      {
+                          "LocalAddress":  "127.0.0.1",
+                          "LocalPort":  8501,
+                          "OwningProcess":  32132
+                      }
+                  ],
+    "InspeccionVisual":  "Pendiente; controlador y host de navegador no disponibles"
+}

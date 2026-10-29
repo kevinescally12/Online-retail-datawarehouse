@@ -1,0 +1,11 @@
+﻿{
+    "Fecha":  "2026-10-29T12:45:23.0219173-05:00",
+    "ValidacionAMO":  true,
+    "Errores":  [
+
+                ],
+    "CompiladoSHA256":  "0C52B2491C81581E335F023F3B98B06CBF69372817ABB5B6A66B92BF4A6AB9C0",
+    "XMLAIgualAlDesplegado":  true,
+    "EstructuraSSASSinCambios":  true,
+    "Estado":  "Processed"
+}

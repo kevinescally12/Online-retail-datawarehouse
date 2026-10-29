@@ -1,0 +1,6 @@
+﻿"name","Columna","TablaReferida","ColumnaReferida","is_disabled","is_not_trusted"
+"FK_FactOperacion_Fecha","FechaKey","DimFecha","FechaKey","False","False"
+"FK_FactOperacion_Producto","ProductoKey","DimProducto","ProductoKey","False","False"
+"FK_FactOperacion_Cliente","ClienteKey","DimCliente","ClienteKey","False","False"
+"FK_FactOperacion_Pais","PaisKey","DimPais","PaisKey","False","False"
+"FK_FactOperacion_Tipo","TipoOperacionKey","DimTipoOperacion","TipoOperacionKey","False","False"

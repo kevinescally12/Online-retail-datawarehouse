@@ -1,0 +1,110 @@
+[
+  {
+    "caso": "fecha",
+    "filtros": "Filters(start=datetime.date(2010, 12, 1), end=datetime.date(2010, 12, 31), country='', product='', operation_type='')",
+    "valores": {
+      "Importe": "748957.02",
+      "Cantidad firmada": 342228,
+      "Conteo operaciones": 42481,
+      "Facturas distintas": 2025,
+      "Importe Ventas y cargos": "823746.14",
+      "Importe Cancelacion": "-74789.12",
+      "Neto Ventas y cargos mas Cancelacion": "748957.02",
+      "Importe Ajuste contable": null,
+      "Operaciones Precio cero": 273,
+      "Importe Precio cero": "0",
+      "Operaciones Por revisar": null,
+      "Importe Por revisar": null
+    }
+  },
+  {
+    "caso": "pais",
+    "filtros": "Filters(start=datetime.date(2009, 12, 1), end=datetime.date(2011, 12, 9), country='[Pais].[Pais].&[23]', product='', operation_type='')",
+    "valores": {
+      "Importe": "412517.831",
+      "Cantidad firmada": 222030,
+      "Conteo operaciones": 17363,
+      "Facturas distintas": 1095,
+      "Importe Ventas y cargos": "425578.381",
+      "Importe Cancelacion": "-13060.55",
+      "Neto Ventas y cargos mas Cancelacion": "412517.831",
+      "Importe Ajuste contable": null,
+      "Operaciones Precio cero": 8,
+      "Importe Precio cero": "0",
+      "Operaciones Por revisar": null,
+      "Importe Por revisar": null
+    }
+  },
+  {
+    "caso": "producto",
+    "filtros": "Filters(start=datetime.date(2009, 12, 1), end=datetime.date(2011, 12, 9), country='', product='[Producto].[Producto].&[2840]', operation_type='')",
+    "valores": {
+      "Importe": "252122.83",
+      "Cantidad firmada": 94759,
+      "Conteo operaciones": 5810,
+      "Facturas distintas": 5606,
+      "Importe Ventas y cargos": "261509.93",
+      "Importe Cancelacion": "-9387.1",
+      "Neto Ventas y cargos mas Cancelacion": "252122.83",
+      "Importe Ajuste contable": null,
+      "Operaciones Precio cero": 8,
+      "Importe Precio cero": "0",
+      "Operaciones Por revisar": null,
+      "Importe Por revisar": null
+    }
+  },
+  {
+    "caso": "tipo_precio_cero",
+    "filtros": "Filters(start=datetime.date(2009, 12, 1), end=datetime.date(2011, 12, 9), country='', product='', operation_type='[TipoOperacion].[TipoOperacion].&[4]')",
+    "valores": {
+      "Importe": "0",
+      "Cantidad firmada": -318544,
+      "Conteo operaciones": 6024,
+      "Facturas distintas": 5379,
+      "Importe Ventas y cargos": "20533741.918",
+      "Importe Cancelacion": "-1465677.23",
+      "Neto Ventas y cargos mas Cancelacion": "19068064.688",
+      "Importe Ajuste contable": "-158676.14",
+      "Operaciones Precio cero": 6024,
+      "Importe Precio cero": "0",
+      "Operaciones Por revisar": 1,
+      "Importe Por revisar": "373.57"
+    }
+  },
+  {
+    "caso": "combinados",
+    "filtros": "Filters(start=datetime.date(2010, 12, 1), end=datetime.date(2010, 12, 31), country='[Pais].[Pais].&[5]', product='[Producto].[Producto].&[2840]', operation_type='[TipoOperacion].[TipoOperacion].&[1]')",
+    "valores": {
+      "Importe": "10908.77",
+      "Cantidad firmada": 3751,
+      "Conteo operaciones": 229,
+      "Facturas distintas": 223,
+      "Importe Ventas y cargos": "10908.77",
+      "Importe Cancelacion": "-1285.6",
+      "Neto Ventas y cargos mas Cancelacion": "9623.17",
+      "Importe Ajuste contable": null,
+      "Operaciones Precio cero": 1,
+      "Importe Precio cero": "0",
+      "Operaciones Por revisar": null,
+      "Importe Por revisar": null
+    }
+  },
+  {
+    "caso": "sin_hechos",
+    "filtros": "Filters(start=datetime.date(2009, 12, 1), end=datetime.date(2011, 12, 9), country='[Pais].[Pais].&[1]', product='', operation_type='')",
+    "valores": {
+      "Importe": null,
+      "Cantidad firmada": null,
+      "Conteo operaciones": null,
+      "Facturas distintas": null,
+      "Importe Ventas y cargos": null,
+      "Importe Cancelacion": null,
+      "Neto Ventas y cargos mas Cancelacion": null,
+      "Importe Ajuste contable": null,
+      "Operaciones Precio cero": null,
+      "Importe Precio cero": null,
+      "Operaciones Por revisar": null,
+      "Importe Por revisar": null
+    }
+  }
+]

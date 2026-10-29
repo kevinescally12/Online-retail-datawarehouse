@@ -1,0 +1,7 @@
+﻿"Fecha","Consulta","Estado","Filas","Error"
+"2026-10-29T12:46:24.8358714-05:00","01_totales.mdx","EJECUTADA","1",""
+"2026-10-29T12:46:24.8538735-05:00","02_por_tipo.mdx","EJECUTADA","5",""
+"2026-10-29T12:46:24.8790452-05:00","03_por_mes.mdx","EJECUTADA","25",""
+"2026-10-29T12:46:24.9083561-05:00","04_por_pais.mdx","EJECUTADA","44",""
+"2026-10-29T12:46:24.9148666-05:00","05_calculos.mdx","EJECUTADA","1",""
+"2026-10-29T12:46:24.9199743-05:00","06_filtro_tipo.mdx","EJECUTADA","1",""

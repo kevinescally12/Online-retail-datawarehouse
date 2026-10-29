@@ -1,0 +1,76 @@
+﻿{
+    "Fecha":  "2026-10-29T15:46:49.8038489-05:00",
+    "Comprobaciones":  [
+                           {
+                               "Ruta":  "/",
+                               "EstadoHTTP":  200,
+                               "Tipo":  "text/html; charset=utf-8",
+                               "Bytes":  46956
+                           },
+                           {
+                               "Ruta":  "/section/overview",
+                               "EstadoHTTP":  200,
+                               "Tipo":  "text/html; charset=utf-8",
+                               "Bytes":  7818
+                           },
+                           {
+                               "Ruta":  "/section/model",
+                               "EstadoHTTP":  200,
+                               "Tipo":  "text/html; charset=utf-8",
+                               "Bytes":  11076
+                           },
+                           {
+                               "Ruta":  "/section/etl",
+                               "EstadoHTTP":  200,
+                               "Tipo":  "text/html; charset=utf-8",
+                               "Bytes":  10930
+                           },
+                           {
+                               "Ruta":  "/section/cube",
+                               "EstadoHTTP":  200,
+                               "Tipo":  "text/html; charset=utf-8",
+                               "Bytes":  10555
+                           },
+                           {
+                               "Ruta":  "/section/audit",
+                               "EstadoHTTP":  200,
+                               "Tipo":  "text/html; charset=utf-8",
+                               "Bytes":  43945
+                           },
+                           {
+                               "Ruta":  "/download/diccionario-portal",
+                               "EstadoHTTP":  200,
+                               "Tipo":  "text/markdown; charset=utf-8",
+                               "Bytes":  5822
+                           },
+                           {
+                               "Ruta":  "/static/js/analytics.js",
+                               "EstadoHTTP":  200,
+                               "Tipo":  "text/javascript; charset=utf-8",
+                               "Bytes":  8511
+                           },
+                           {
+                               "Ruta":  "/static/vendor/InterVariable.woff2",
+                               "EstadoHTTP":  200,
+                               "Tipo":  "application/octet-stream",
+                               "Bytes":  352240
+                           },
+                           {
+                               "Ruta":  "/health",
+                               "EstadoHTTP":  200,
+                               "Tipo":  "application/json",
+                               "Bytes":  111
+                           }
+                       ],
+    "ConsultaSSASActual":  "2026-10-29T15:46:49-05:00",
+    "Operaciones":  1044848,
+    "Importe":  "18909762.118",
+    "EjeSecundario":  "Operaciones",
+    "Listeners":  [
+                      {
+                          "LocalAddress":  "127.0.0.1",
+                          "LocalPort":  8502,
+                          "OwningProcess":  36572
+                      }
+                  ]
+}

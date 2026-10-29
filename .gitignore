@@ -1,0 +1,60 @@
+# Configuración privada
+.env
+.env.*
+!.env.example
+!.env.*.example
+.streamlit/secrets.toml
+*.ds
+*.dsproj.user
+*.dwproj.user
+*.user
+*.suo
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Frontend
+node_modules/
+dist/
+coverage/
+
+# Visual Studio y compilación SSAS
+.vs/
+[Bb]in/
+[Oo]bj/
+*.asdatabase
+*.deploymentoptions
+*.deploymenttargets
+
+# Archivos físicos y respaldos de bases
+*.mdf
+*.ndf
+*.ldf
+*.bak
+*.abf
+
+# Dataset original
+online_retail_II.xlsx
+
+# Temporales LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Sistema
+Thumbs.db
+.DS_Store

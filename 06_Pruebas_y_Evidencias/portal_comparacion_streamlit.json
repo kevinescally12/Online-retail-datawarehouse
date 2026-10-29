@@ -1,0 +1,290 @@
+[
+  {
+    "caso": "periodo_completo",
+    "medida": "Importe",
+    "anterior": "18909762.118",
+    "portal": "18909762.118",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "periodo_completo",
+    "medida": "Cantidad firmada",
+    "anterior": "10441844",
+    "portal": 10441844,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "periodo_completo",
+    "medida": "Conteo operaciones",
+    "anterior": "1044848",
+    "portal": 1044848,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "periodo_completo",
+    "medida": "Facturas distintas",
+    "anterior": "53628",
+    "portal": 53628,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "periodo_completo",
+    "medida": "Importe Ventas y cargos",
+    "anterior": "20533741.918",
+    "portal": "20533741.918",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "periodo_completo",
+    "medida": "Importe Cancelacion",
+    "anterior": "-1465677.23",
+    "portal": "-1465677.23",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "periodo_completo",
+    "medida": "Neto Ventas y cargos mas Cancelacion",
+    "anterior": "19068064.688",
+    "portal": "19068064.688",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "periodo_completo",
+    "medida": "Importe Ajuste contable",
+    "anterior": "-158676.14",
+    "portal": "-158676.14",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "periodo_completo",
+    "medida": "Operaciones Precio cero",
+    "anterior": "6024",
+    "portal": 6024,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "periodo_completo",
+    "medida": "Importe Precio cero",
+    "anterior": "0",
+    "portal": "0",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "periodo_completo",
+    "medida": "Operaciones Por revisar",
+    "anterior": "1",
+    "portal": 1,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "periodo_completo",
+    "medida": "Importe Por revisar",
+    "anterior": "373.57",
+    "portal": "373.57",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "Spain",
+    "medida": "Importe",
+    "anterior": "91064.76",
+    "portal": "91064.76",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "Spain",
+    "medida": "Cantidad firmada",
+    "anterior": "44689",
+    "portal": 44689,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "Spain",
+    "medida": "Conteo operaciones",
+    "anterior": "3766",
+    "portal": 3766,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "Spain",
+    "medida": "Facturas distintas",
+    "anterior": "188",
+    "portal": 188,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "Spain",
+    "medida": "Importe Ventas y cargos",
+    "anterior": "108383.81",
+    "portal": "108383.81",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "Spain",
+    "medida": "Importe Cancelacion",
+    "anterior": "-17319.05",
+    "portal": "-17319.05",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "Spain",
+    "medida": "Neto Ventas y cargos mas Cancelacion",
+    "anterior": "91064.76",
+    "portal": "91064.76",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "Spain",
+    "medida": "Importe Ajuste contable",
+    "anterior": null,
+    "portal": null,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "Spain",
+    "medida": "Operaciones Precio cero",
+    "anterior": "1",
+    "portal": 1,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "Spain",
+    "medida": "Importe Precio cero",
+    "anterior": "0",
+    "portal": "0",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "Spain",
+    "medida": "Operaciones Por revisar",
+    "anterior": null,
+    "portal": null,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "Spain",
+    "medida": "Importe Por revisar",
+    "anterior": null,
+    "portal": null,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "combinados",
+    "medida": "Importe",
+    "anterior": "10908.77",
+    "portal": "10908.77",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "combinados",
+    "medida": "Cantidad firmada",
+    "anterior": "3751",
+    "portal": 3751,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "combinados",
+    "medida": "Conteo operaciones",
+    "anterior": "229",
+    "portal": 229,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "combinados",
+    "medida": "Facturas distintas",
+    "anterior": "223",
+    "portal": 223,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "combinados",
+    "medida": "Importe Ventas y cargos",
+    "anterior": "10908.77",
+    "portal": "10908.77",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "combinados",
+    "medida": "Importe Cancelacion",
+    "anterior": "-1285.6",
+    "portal": "-1285.6",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "combinados",
+    "medida": "Neto Ventas y cargos mas Cancelacion",
+    "anterior": "9623.17",
+    "portal": "9623.17",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "combinados",
+    "medida": "Importe Ajuste contable",
+    "anterior": null,
+    "portal": null,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "combinados",
+    "medida": "Operaciones Precio cero",
+    "anterior": "1",
+    "portal": 1,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "combinados",
+    "medida": "Importe Precio cero",
+    "anterior": "0",
+    "portal": "0",
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "combinados",
+    "medida": "Operaciones Por revisar",
+    "anterior": null,
+    "portal": null,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  },
+  {
+    "caso": "combinados",
+    "medida": "Importe Por revisar",
+    "anterior": null,
+    "portal": null,
+    "tolerancia": "0",
+    "estado": "APROBADO"
+  }
+]

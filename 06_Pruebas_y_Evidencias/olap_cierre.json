@@ -1,0 +1,72 @@
+﻿{
+    "Fecha":  "2026-10-29T12:48:48.3346123-05:00",
+    "ContextosSQL":  74,
+    "ContextosSQLCierre":  74,
+    "Comparaciones":  296,
+    "Aprobadas":  296,
+    "Fallidas":  0,
+    "Pendientes":  0,
+    "ReferenciasVigentes":  296,
+    "CalculosVerificados":  12,
+    "CalculosAprobados":  12,
+    "ToleranciaDecimal":  "0",
+    "ToleranciaConteos":  "0",
+    "PermisosEfectivos":  [
+                              {
+                                  "Objeto":  "BASE",
+                                  "PuedeConectar":  1,
+                                  "EsSysadmin":  0,
+                                  "EsDbOwner":  0,
+                                  "EsDbDatareader":  0,
+                                  "AccesoOrigen":  0
+                              },
+                              {
+                                  "Objeto":  "dbo.DimFecha",
+                                  "PuedeLeer":  1,
+                                  "PuedeInsertar":  0,
+                                  "PuedeActualizar":  0,
+                                  "PuedeBorrar":  0,
+                                  "PuedeAlterar":  0
+                              },
+                              {
+                                  "Objeto":  "dbo.DimProducto",
+                                  "PuedeLeer":  1,
+                                  "PuedeInsertar":  0,
+                                  "PuedeActualizar":  0,
+                                  "PuedeBorrar":  0,
+                                  "PuedeAlterar":  0
+                              },
+                              {
+                                  "Objeto":  "dbo.DimCliente",
+                                  "PuedeLeer":  1,
+                                  "PuedeInsertar":  0,
+                                  "PuedeActualizar":  0,
+                                  "PuedeBorrar":  0,
+                                  "PuedeAlterar":  0
+                              },
+                              {
+                                  "Objeto":  "dbo.DimPais",
+                                  "PuedeLeer":  1,
+                                  "PuedeInsertar":  0,
+                                  "PuedeActualizar":  0,
+                                  "PuedeBorrar":  0,
+                                  "PuedeAlterar":  0
+                              },
+                              {
+                                  "Objeto":  "dbo.DimTipoOperacion",
+                                  "PuedeLeer":  1,
+                                  "PuedeInsertar":  0,
+                                  "PuedeActualizar":  0,
+                                  "PuedeBorrar":  0,
+                                  "PuedeAlterar":  0
+                              },
+                              {
+                                  "Objeto":  "dbo.FactOperacion",
+                                  "PuedeLeer":  1,
+                                  "PuedeInsertar":  0,
+                                  "PuedeActualizar":  0,
+                                  "PuedeBorrar":  0,
+                                  "PuedeAlterar":  0
+                              }
+                          ]
+}

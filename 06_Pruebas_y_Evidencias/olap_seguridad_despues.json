@@ -1,0 +1,82 @@
+﻿[
+    {
+        "Clase":  "LOGIN",
+        "name":  "NT SERVICE\\MSSQLServerOLAPService",
+        "type_desc":  "WINDOWS_LOGIN",
+        "is_disabled":  false
+    },
+    {
+        "Clase":  "PERMISO_SERVIDOR",
+        "state_desc":  "GRANT",
+        "permission_name":  "CONNECT SQL"
+    },
+    {
+        "Clase":  "USUARIO_DW",
+        "name":  "NT SERVICE\\MSSQLServerOLAPService",
+        "type_desc":  "WINDOWS_USER",
+        "SID":  "0x010600000000000550000000622333AB63ED1628B921FA348AF05DA6E968AC5C"
+    },
+    {
+        "Clase":  "PERMISO_DW",
+        "class_desc":  "DATABASE",
+        "state_desc":  "GRANT",
+        "permission_name":  "CONNECT",
+        "Esquema":  null,
+        "Objeto":  null,
+        "minor_id":  0
+    },
+    {
+        "Clase":  "PERMISO_DW",
+        "class_desc":  "OBJECT_OR_COLUMN",
+        "state_desc":  "GRANT",
+        "permission_name":  "SELECT",
+        "Esquema":  "dbo",
+        "Objeto":  "DimFecha",
+        "minor_id":  0
+    },
+    {
+        "Clase":  "PERMISO_DW",
+        "class_desc":  "OBJECT_OR_COLUMN",
+        "state_desc":  "GRANT",
+        "permission_name":  "SELECT",
+        "Esquema":  "dbo",
+        "Objeto":  "DimProducto",
+        "minor_id":  0
+    },
+    {
+        "Clase":  "PERMISO_DW",
+        "class_desc":  "OBJECT_OR_COLUMN",
+        "state_desc":  "GRANT",
+        "permission_name":  "SELECT",
+        "Esquema":  "dbo",
+        "Objeto":  "DimCliente",
+        "minor_id":  0
+    },
+    {
+        "Clase":  "PERMISO_DW",
+        "class_desc":  "OBJECT_OR_COLUMN",
+        "state_desc":  "GRANT",
+        "permission_name":  "SELECT",
+        "Esquema":  "dbo",
+        "Objeto":  "DimPais",
+        "minor_id":  0
+    },
+    {
+        "Clase":  "PERMISO_DW",
+        "class_desc":  "OBJECT_OR_COLUMN",
+        "state_desc":  "GRANT",
+        "permission_name":  "SELECT",
+        "Esquema":  "dbo",
+        "Objeto":  "DimTipoOperacion",
+        "minor_id":  0
+    },
+    {
+        "Clase":  "PERMISO_DW",
+        "class_desc":  "OBJECT_OR_COLUMN",
+        "state_desc":  "GRANT",
+        "permission_name":  "SELECT",
+        "Esquema":  "dbo",
+        "Objeto":  "FactOperacion",
+        "minor_id":  0
+    }
+]

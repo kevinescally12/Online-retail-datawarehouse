@@ -1,0 +1,58 @@
+﻿[
+    {
+        "Objeto":  "BASE",
+        "PuedeConectar":  1,
+        "EsSysadmin":  0,
+        "EsDbOwner":  0,
+        "EsDbDatareader":  0,
+        "AccesoOrigen":  0
+    },
+    {
+        "Objeto":  "dbo.DimFecha",
+        "PuedeLeer":  1,
+        "PuedeInsertar":  0,
+        "PuedeActualizar":  0,
+        "PuedeBorrar":  0,
+        "PuedeAlterar":  0
+    },
+    {
+        "Objeto":  "dbo.DimProducto",
+        "PuedeLeer":  1,
+        "PuedeInsertar":  0,
+        "PuedeActualizar":  0,
+        "PuedeBorrar":  0,
+        "PuedeAlterar":  0
+    },
+    {
+        "Objeto":  "dbo.DimCliente",
+        "PuedeLeer":  1,
+        "PuedeInsertar":  0,
+        "PuedeActualizar":  0,
+        "PuedeBorrar":  0,
+        "PuedeAlterar":  0
+    },
+    {
+        "Objeto":  "dbo.DimPais",
+        "PuedeLeer":  1,
+        "PuedeInsertar":  0,
+        "PuedeActualizar":  0,
+        "PuedeBorrar":  0,
+        "PuedeAlterar":  0
+    },
+    {
+        "Objeto":  "dbo.DimTipoOperacion",
+        "PuedeLeer":  1,
+        "PuedeInsertar":  0,
+        "PuedeActualizar":  0,
+        "PuedeBorrar":  0,
+        "PuedeAlterar":  0
+    },
+    {
+        "Objeto":  "dbo.FactOperacion",
+        "PuedeLeer":  1,
+        "PuedeInsertar":  0,
+        "PuedeActualizar":  0,
+        "PuedeBorrar":  0,
+        "PuedeAlterar":  0
+    }
+]

@@ -1,0 +1,82 @@
+{
+  "fecha": "2026-10-29T13:10:03.850686-05:00",
+  "pruebas": 15,
+  "fallos": 0,
+  "errores": 0,
+  "resultados": [
+    {
+      "prueba": "test_dashboard.DashboardTests.test_mock_01_error_de_conexion_en_interfaz",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_real_01_totales_con_referencias_conciliadas",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_real_02_fecha_frente_mes_conciliado",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_real_03_pais_y_ranking_filtrado",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_real_04_producto_y_categoria",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_real_05_tipo_sustituido_solo_en_medidas_fijas",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_real_06_filtros_combinados_y_medidas_por_tipo",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_real_07_vacio_sin_simular_ceros",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_real_08_exportacion_exacta_filtrada",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_real_09_no_sumar_facturas_parciales",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_ui_01_carga_filtrado_y_limpiar_con_ssas_real",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_ui_02_estado_vacio_con_ssas_real",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_ui_03_fecha_producto_y_detalle_con_ssas_real",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_unit_01_rechazo_de_miembros_arbitrarios",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "test_dashboard.DashboardTests.test_unit_02_fecha_invalida_y_lectura_exclusiva",
+      "estado": "APROBADO"
+    }
+  ],
+  "versiones": {
+    "streamlit": "1.66.1",
+    "pythonnet": "3.0.5",
+    "pandas": "3.1.0",
+    "plotly": "7.1.0",
+    "python-dotenv": "1.2.4"
+  },
+  "visual": "NO REALIZADA: controlador nativo y host de navegador no disponibles",
+  "tipos": {
+    "real": "consultas SSAS reales",
+    "ui": "AppTest con SSAS real, no navegador visual",
+    "mock": "error de conexión simulado y explícito",
+    "unit": "validación local de entradas"
+  }
+}

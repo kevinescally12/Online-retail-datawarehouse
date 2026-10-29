@@ -1,0 +1,60 @@
+{
+  "excepciones": [],
+  "errores": [],
+  "indicadores": [
+    {
+      "label": "Operaciones seleccionadas",
+      "value": "1 044 848"
+    },
+    {
+      "label": "Importe de Ventas y cargos",
+      "value": "20 533 741,9180"
+    },
+    {
+      "label": "Importe de cancelaciones",
+      "value": "-1 465 677,2300"
+    },
+    {
+      "label": "Neto: ventas/cargos + cancelación",
+      "value": "19 068 064,6880"
+    },
+    {
+      "label": "Ajustes contables · importe",
+      "value": "-158 676,1400"
+    },
+    {
+      "label": "Por revisar · operaciones",
+      "value": "1"
+    },
+    {
+      "label": "Precio cero · operaciones",
+      "value": "6 024"
+    },
+    {
+      "label": "Facturas distintas seleccionadas",
+      "value": "53 628"
+    }
+  ],
+  "selectores": [
+    {
+      "label": "País",
+      "value": "",
+      "opciones": 45
+    },
+    {
+      "label": "Código y descripción de producto",
+      "value": "",
+      "opciones": 5133
+    },
+    {
+      "label": "Tipo de operación",
+      "value": "",
+      "opciones": 6
+    }
+  ],
+  "graficos": 4,
+  "tablas": 1,
+  "exportacion": [
+    "id: \"$$ID-19327dc88362ac4a6c51f61b79be2feb-export_csv\"\nlabel: \"Descargar resultado filtrado (CSV)\"\nurl: \"/mock/media/dc6f4d648caafbefaf929f404b3ed29f.csv\"\ntype: \"secondary\"\n"
+  ]
+}

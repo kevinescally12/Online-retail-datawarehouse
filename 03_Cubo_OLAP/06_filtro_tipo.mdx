@@ -1,0 +1,6 @@
+-- Los cálculos fijan su tipo: reemplazan el filtro de esta jerarquía.
+-- El Importe base se restringe a Precio cero; los cálculos mantienen sus tipos explícitos.
+SELECT {[Measures].[Importe],[Measures].[Importe Ventas y cargos],
+ [Measures].[Importe Cancelacion],[Measures].[Neto Ventas y cargos mas Cancelacion]} ON COLUMNS
+FROM [Online Retail]
+WHERE ([TipoOperacion].[TipoOperacion].&[4]);

@@ -1,0 +1,99 @@
+{
+  "fecha": "2026-10-29T16:12:13.298969-05:00",
+  "alcance": "SSAS real y cliente Flask; revisión estática CSS/HTML. Sin navegador, sin mocks.",
+  "aprobadas": 12,
+  "total": 12,
+  "resultados": [
+    {
+      "prueba": "Backend interpreta 3 a 9 de abril, no marzo/septiembre",
+      "estado": "APROBADO",
+      "inicio": "2010-04-03",
+      "fin": "2010-04-09"
+    },
+    {
+      "prueba": "MDX existente recibe las siete fechas de abril sin intercambio",
+      "estado": "APROBADO",
+      "mdx": "SELECT {[Measures].[Importe],[Measures].[Cantidad firmada],[Measures].[Conteo operaciones],[Measures].[Facturas distintas],[Measures].[Importe Ventas y cargos],[Measures].[Importe Cancelacion],[Measures].[Neto Ventas y cargos mas Cancelacion],[Measures].[Importe Ajuste contable],[Measures].[Operaciones Precio cero],[Measures].[Importe Precio cero],[Measures].[Operaciones Por revisar],[Measures].[Importe Por revisar]} ON 0 FROM [Online Retail] WHERE {[Fecha].[Fecha].&[20100403],[Fecha].[Fecha].&[20100404],[Fecha].[Fecha].&[20100405],[Fecha].[Fecha].&[20100406],[Fecha].[Fecha].&[20100407],[Fecha].[Fecha].&[20100408],[Fecha].[Fecha].&[20100409]}"
+    },
+    {
+      "prueba": "Consulta real SSAS: periodo aplicado coincide con ISO enviado",
+      "estado": "APROBADO",
+      "http": 200,
+      "periodo": {
+        "end": "2010-04-09",
+        "start": "2010-04-03"
+      },
+      "totales": {
+        "Cantidad firmada": 70212,
+        "Conteo operaciones": 5434,
+        "Facturas distintas": 292,
+        "Importe": "117470.76",
+        "Importe Ajuste contable": null,
+        "Importe Cancelacion": "-1211.61",
+        "Importe Por revisar": null,
+        "Importe Precio cero": "0",
+        "Importe Ventas y cargos": "118682.37",
+        "Neto Ventas y cargos mas Cancelacion": "117470.76",
+        "Operaciones Por revisar": null,
+        "Operaciones Precio cero": 22
+      }
+    },
+    {
+      "prueba": "CSV real mantiene cuatro decimales",
+      "estado": "APROBADO",
+      "importes": [
+        "590580.4320"
+      ]
+    },
+    {
+      "prueba": "Una navegación lateral y alternativa móvil accesible",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Formato y fechas legibles asociados a ambos controles",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Estático: barra opaca, apilamiento y separación adaptable",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Sin cambios: 04_Dashboard/queries.py",
+      "estado": "APROBADO",
+      "sha256": "2EA12174BD81C4AC5ABDC548E03E9EABAF388C493E0DC8F21D71F84F5A607EBD"
+    },
+    {
+      "prueba": "Sin cambios: 04_Dashboard/presentation.py",
+      "estado": "APROBADO",
+      "sha256": "476946BA371C403BE66AF7960FE0265FA3A09716F68392C714B4482EDF1D65F7"
+    },
+    {
+      "prueba": "Sin cambios: 04_Dashboard/connection.py",
+      "estado": "APROBADO",
+      "sha256": "FEFCF9F9C5A228D8ABE01455A3B1E4B293C285759EE67562E82C59395BA81809"
+    },
+    {
+      "prueba": "Sin cambios: 04_Dashboard/portal_stitch/service.py",
+      "estado": "APROBADO",
+      "sha256": "4F0D15DA3D9D6FC4FE6849266D57796538F2101110E7056E4E384F690D81BAF3"
+    },
+    {
+      "prueba": "Sin cambios: 04_Dashboard/portal_stitch/figures.py",
+      "estado": "APROBADO",
+      "sha256": "2E9EBCCEAEE4E5D8602883515F6D87487E5B6787CF94CC374C7F326412FE4DF8"
+    }
+  ],
+  "observacion_fuera_de_alcance": {
+    "intervalo": {
+      "start": "2010-04-03",
+      "end": "2010-04-09",
+      "group": "Mes",
+      "metric": "Importe"
+    },
+    "importe_tarjeta": "117470.76",
+    "importe_filas_mensuales_csv": [
+      "590580.4320"
+    ],
+    "nota": "La fila mensual real no coincide con la tarjeta del intervalo parcial. La recepción ISO y las fechas MDX son correctas. No se alteraron consultas; requiere investigación separada del cruce Mes/Fecha en SSAS."
+  }
+}

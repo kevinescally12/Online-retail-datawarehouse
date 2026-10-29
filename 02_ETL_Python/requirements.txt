@@ -1,0 +1,3 @@
+# Versiones comprobadas en este equipo durante la entrega.
+openpyxl==3.1.5
+pyodbc==5.3.0

@@ -1,0 +1,1 @@
+﻿<Batch xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" Transaction="true"><Process><Object><DatabaseID>CuboOnlineRetail</DatabaseID></Object><Type>ProcessFull</Type></Process></Batch>

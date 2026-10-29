@@ -1,0 +1,5 @@
+﻿Revision visual pendiente. Referencia code.html y screen.png inspeccionados antes de implementar.
+cua.getState devolvio: Native apps: Computer Use native pipe is unavailable: failed to connect native pipe: El sistema no puede encontrar el archivo especificado. (os error 2)
+Browsers: The browser access host is unavailable
+No hay capturas del portal ni comprobacion real de ventana de escritorio/estrecha. Se verificaron endpoints, reglas CSS, marcado y funciones JS.
+Pendiente: navegador a 1440x900 y 390x844, tooltip, menu movil, descarga y consola/CSP.

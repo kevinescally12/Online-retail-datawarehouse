@@ -1,0 +1,21 @@
+{
+  "fecha": "2026-10-29T12:55:31.680154-05:00",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "pythonnet": "3.0.5",
+  "runtime": "netfx",
+  "adomd": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\SSAS\\Microsoft.AnalysisServices.AdomdClient.dll",
+  "consulta": "SELECT {[Measures].[Importe],[Measures].[Conteo operaciones]} ON 0 FROM [Online Retail]",
+  "valores": [
+    {
+      "medida": "Importe",
+      "valor": "18909762.118",
+      "tipo": "System.Decimal"
+    },
+    {
+      "medida": "Conteo operaciones",
+      "valor": "1044848",
+      "tipo": "int"
+    }
+  ],
+  "estado": "APROBADO_CONSULTA_REAL"
+}

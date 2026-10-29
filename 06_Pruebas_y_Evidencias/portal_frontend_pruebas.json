@@ -1,0 +1,40 @@
+{
+  "fecha": "2026-10-29T20:37:34.269Z",
+  "alcance": "8 pruebas unitarias de funciones JavaScript con entradas de prueba; sin navegador ni datos simulados en gráficos",
+  "pruebas": 8,
+  "aprobadas": 8,
+  "resultados": [
+    {
+      "prueba": "Decimal exacto de importes, sin pasar por Number",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Cancelación conserva el signo",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Texto decimal superior al límite entero seguro de JS",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Ausencia y cero no se confunden",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Limpieza restaura periodo, cuatro filtros y controles",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Producto exige selección exacta del catálogo",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Filtros combinados se codifican sin concatenar MDX",
+      "estado": "APROBADO"
+    },
+    {
+      "prueba": "Intervalo invertido se rechaza",
+      "estado": "APROBADO"
+    }
+  ]
+}

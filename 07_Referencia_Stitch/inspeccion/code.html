@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Portal Oficial & Showroom Técnico - Online Retail BI</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      background-color: #f8fafc;
+      color: #0f172a;
+      font-family: 'Inter', sans-serif;
+    }
+    .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    
+    .chart-bar-hover:hover {
+      filter: brightness(0.92);
+      transform: translateY(-2px);
+    }
+    .donut-hover:hover {
+      stroke-width: 24;
+      opacity: 0.95;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 min-h-screen flex antialiased selection:bg-indigo-100 selection:text-indigo-900">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="fixed left-0 top-0 h-full w-72 bg-white border-r border-slate-200 z-50 flex flex-col justify-between shadow-sm">
+    <div class="flex flex-col">
+      <!-- Brand Header -->
+      <div class="p-5 border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-lg bg-indigo-600 text-white flex items-center justify-center shadow-md shadow-indigo-600/20">
+              <span class="material-symbols-outlined text-[20px]">dataset</span>
+            </div>
+            <div>
+              <span class="font-heading font-bold text-[15px] text-slate-900 leading-tight block">RETAIL DWH</span>
+              <span class="text-[11px] text-slate-500 font-mono">RALPH KIMBALL BI</span>
+            </div>
+          </div>
+          <span class="bg-indigo-50 text-indigo-700 font-mono text-[10px] font-bold px-2 py-0.5 rounded-full border border-indigo-200">PROD</span>
+        </div>
+        <p class="text-[12px] text-slate-500 mt-1 leading-snug">Portal de Entrega & Showroom Técnico</p>
+        
+        <!-- Certifications -->
+        <div class="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-1.5">
+          <div class="flex items-center justify-between px-2.5 py-1.5 rounded-md bg-emerald-50 border border-emerald-100 text-[11px]">
+            <span class="flex items-center gap-1.5 font-semibold text-emerald-800">
+              <span class="material-symbols-outlined text-[15px] text-emerald-600">verified</span>
+              100% Conciliado
+            </span>
+            <span class="font-mono text-emerald-700 font-bold">296/296 OK</span>
+          </div>
+          <div class="flex items-center justify-between px-2.5 py-1.5 rounded-md bg-indigo-50 border border-indigo-100 text-[11px]">
+            <span class="flex items-center gap-1.5 font-semibold text-indigo-800">
+              <span class="material-symbols-outlined text-[15px] text-indigo-600">view_in_ar</span>
+              SSAS OLAP Ready
+            </span>
+            <span class="font-mono text-indigo-700 font-bold">v14.0 Enterprise</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="px-4 pt-4 pb-1">
+        <span class="text-[11px] font-bold text-slate-400 tracking-wider uppercase font-mono">Módulos de Entrega</span>
+      </div>
+
+      <nav class="flex flex-col gap-1 px-3 py-2 text-[13px]">
+        <button onclick="switchTab('tab-overview')" id="nav-tab-overview" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-lg font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-left transition-colors">
+          <span class="material-symbols-outlined text-[19px]">schema</span>
+          <span>Overview & Arquitectura</span>
+        </button>
+        <button onclick="switchTab('tab-charts')" id="nav-tab-charts" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-lg font-semibold text-indigo-700 bg-indigo-50/80 border border-indigo-200/60 text-left transition-colors">
+          <span class="material-symbols-outlined text-[19px] text-indigo-600">monitoring</span>
+          <span class="flex-1">Gráficos Analíticos (BI)</span>
+          <span class="bg-indigo-600 text-white text-[10px] font-mono px-1.5 py-0.5 rounded font-bold">DATA</span>
+        </button>
+        <button onclick="switchTab('tab-mod1')" id="nav-tab-mod1" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-lg font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-left transition-colors">
+          <span class="material-symbols-outlined text-[19px]">hub</span>
+          <span>M01: Modelo Dimensional</span>
+        </button>
+        <button onclick="switchTab('tab-mod2')" id="nav-tab-mod2" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-lg font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-left transition-colors">
+          <span class="material-symbols-outlined text-[19px]">terminal</span>
+          <span>M02: Pipeline ETL (Python)</span>
+        </button>
+        <button onclick="switchTab('tab-mod3')" id="nav-tab-mod3" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-lg font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-left transition-colors">
+          <span class="material-symbols-outlined text-[19px]">view_in_ar</span>
+          <span>M03: Cubo SSAS & MDX</span>
+        </button>
+        <button onclick="switchTab('tab-mod5')" id="nav-tab-mod5" class="nav-btn w-full flex items-center gap-3 px-3 py-2 rounded-lg font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-left transition-colors">
+          <span class="material-symbols-outlined text-[19px]">policy</span>
+          <span>M05 & M06: Auditoría & Descargas</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div class="p-4 m-3 rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-2">
+      <div class="flex items-center justify-between text-[11px] font-medium text-slate-500">
+        <span class="font-mono">CORE RUNTIME</span>
+        <span class="flex items-center gap-1 text-emerald-700 font-bold font-mono">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> ONLINE
+        </span>
+      </div>
+      <div class="flex items-center justify-between text-[11px] text-slate-700 border-t border-slate-200/80 pt-2 font-mono">
+        <span class="text-slate-500">LINEAGE AUDIT</span>
+        <span class="font-semibold text-emerald-700">PASS (0 ERRORS)</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN LAYOUT ================= -->
+  <div class="pl-72 flex-1 flex flex-col min-h-screen">
+    
+    <!-- Top Header -->
+    <header class="fixed top-0 left-72 right-0 h-16 bg-white/95 backdrop-blur-md border-b border-slate-200 z-40 flex items-center justify-between px-8 shadow-sm">
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
+          <span class="bg-indigo-50 border border-indigo-200 text-indigo-700 font-mono font-bold text-[11px] px-2.5 py-1 rounded-md">
+            COMMITTEE EDITION
+          </span>
+          <span class="text-[13px] text-slate-600 font-medium hidden md:inline">
+            Comité Académico & Evaluación Técnica BI
+          </span>
+        </div>
+        <span class="text-slate-300">|</span>
+        <div class="flex items-center gap-1.5 text-[12px] text-slate-500 font-mono">
+          <span>BUILD:</span>
+          <span class="text-slate-800 font-semibold bg-slate-100 px-2 py-0.5 rounded">v1.0.0-PROD</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="alert('Enlace del repositorio copiado al portapapeles')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 text-[13px] font-medium shadow-sm transition-colors">
+          <span class="material-symbols-outlined text-[17px] text-slate-500">content_copy</span>
+          <span>Copiar Git Repo</span>
+        </button>
+        <button onclick="alert('Descargando paquete completo de entrega...')" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 text-[13px] font-semibold shadow-sm transition-colors">
+          <span class="material-symbols-outlined text-[17px]">download</span>
+          <span>Exportar Dict</span>
+        </button>
+        <div class="w-8 h-8 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center text-slate-700">
+          <span class="material-symbols-outlined text-[19px]">account_circle</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="w-full pt-20 px-8 pb-16 max-w-7xl mx-auto flex-1">
+
+      <!-- Navigation Tabs Pills -->
+      <div class="sticky top-16 z-30 bg-slate-50/95 backdrop-blur-md pt-1 pb-3 mb-6">
+        <div class="flex items-center gap-1.5 overflow-x-auto py-1.5 px-1.5 bg-white border border-slate-200 rounded-xl shadow-sm">
+          <button class="tab-pill px-4 py-2 rounded-lg font-heading text-[13px] flex items-center gap-2 font-medium text-slate-600 hover:text-slate-900 transition-all" id="btn-tab-overview" onclick="switchTab('tab-overview')">
+            <span class="material-symbols-outlined text-[18px]">schema</span>
+            <span>Overview & Arquitectura</span>
+          </button>
+          <button class="tab-pill px-4 py-2 rounded-lg font-heading text-[13px] flex items-center gap-2 font-semibold bg-indigo-600 text-white shadow-sm transition-all" id="btn-tab-charts" onclick="switchTab('tab-charts')">
+            <span class="material-symbols-outlined text-[18px]">monitoring</span>
+            <span>Gráficos Analíticos de Datos</span>
+            <span class="bg-indigo-400 text-white text-[10px] font-mono px-1.5 py-0.2 rounded font-bold">1.04M ROWS</span>
+          </button>
+          <button class="tab-pill px-4 py-2 rounded-lg font-heading text-[13px] flex items-center gap-2 font-medium text-slate-600 hover:text-slate-900 transition-all" id="btn-tab-mod1" onclick="switchTab('tab-mod1')">
+            <span class="material-symbols-outlined text-[18px]">hub</span>
+            <span>M01: Modelo Dimensional</span>
+          </button>
+          <button class="tab-pill px-4 py-2 rounded-lg font-heading text-[13px] flex items-center gap-2 font-medium text-slate-600 hover:text-slate-900 transition-all" id="btn-tab-mod2" onclick="switchTab('tab-mod2')">
+            <span class="material-symbols-outlined text-[18px]">terminal</span>
+            <span>M02: Pipeline ETL</span>
+          </button>
+          <button class="tab-pill px-4 py-2 rounded-lg font-heading text-[13px] flex items-center gap-2 font-medium text-slate-600 hover:text-slate-900 transition-all" id="btn-tab-mod3" onclick="switchTab('tab-mod3')">
+            <span class="material-symbols-outlined text-[18px]">view_in_ar</span>
+            <span>M03: Cubo SSAS & MDX</span>
+          </button>
+          <button class="tab-pill px-4 py-2 rounded-lg font-heading text-[13px] flex items-center gap-2 font-medium text-slate-600 hover:text-slate-900 transition-all" id="btn-tab-mod5" onclick="switchTab('tab-mod5')">
+            <span class="material-symbols-outlined text-[18px]">policy</span>
+            <span>M05 & M06: Auditoría & Descargas</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TAB 1: GRÁFICOS ANALÍTICOS GENERADOS POR LOS DATOS (NEW / HERO) -->
+      <!-- ============================================================ -->
+      <div class="tab-content flex flex-col gap-6" id="tab-charts">
+        
+        <!-- Header & Data Metrics Banner -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 lg:p-7 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="bg-indigo-50 border border-indigo-200 text-indigo-700 font-mono text-[11px] font-bold px-2.5 py-0.5 rounded-md uppercase">
+                Análisis Gráfico Basado en Hechos y Dimensiones
+              </span>
+              <span class="bg-emerald-50 text-emerald-800 font-mono text-[11px] font-bold px-2 py-0.5 rounded border border-emerald-200 flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px] text-emerald-600">check_circle</span> FactOperacion Validado
+              </span>
+            </div>
+            <h1 class="font-heading text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight">
+              Suite de Gráficos Analíticos de Inteligencia de Negocios
+            </h1>
+            <p class="text-[13px] text-slate-600 mt-1 max-w-3xl leading-relaxed">
+              Visualizaciones generadas a partir del grano atómico de <span class="font-semibold text-slate-900">1,044,848 registros consolidados</span> en SQL Server y precalculados en el Cubo SSAS. Permite auditar la estacionalidad, el impacto de las cancelaciones y la jerarquía de productos y países.
+            </p>
+          </div>
+
+          <!-- Metric Switcher Widget -->
+          <div class="bg-slate-50 border border-slate-200 p-2 rounded-xl flex flex-col gap-1 min-w-[220px]">
+            <span class="text-[11px] font-mono font-bold text-slate-500 uppercase px-1">Filtro de Medida:</span>
+            <div class="flex items-center gap-1">
+              <button onclick="setMetric('sales')" id="btn-metric-sales" class="flex-1 py-1.5 px-2 rounded-lg text-[12px] font-mono font-bold bg-indigo-600 text-white shadow-sm transition-all text-center">
+                Importe (£)
+              </button>
+              <button onclick="setMetric('qty')" id="btn-metric-qty" class="flex-1 py-1.5 px-2 rounded-lg text-[12px] font-mono font-medium text-slate-600 hover:bg-slate-200 transition-all text-center">
+                Unidades
+              </button>
+              <button onclick="setMetric('tx')" id="btn-metric-tx" class="flex-1 py-1.5 px-2 rounded-lg text-[12px] font-mono font-medium text-slate-600 hover:bg-slate-200 transition-all text-center">
+                Tickets
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 KPIs del Data Warehouse -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm hover:border-indigo-200 transition-all">
+            <div class="flex items-center justify-between text-slate-400 mb-1">
+              <span class="font-mono text-[11px] font-semibold">FACTURACIÓN NETA CONSOLIDADA</span>
+              <span class="material-symbols-outlined text-indigo-600 text-[20px]">payments</span>
+            </div>
+            <div class="font-heading text-2xl font-bold text-slate-900" id="kpi-val-main">£18,060,466.04</div>
+            <div class="mt-2 text-emerald-700 font-mono text-[11px] font-semibold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[15px]">trending_up</span> +14.2% Crecimiento YoY (2010 a 2011)
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm hover:border-indigo-200 transition-all">
+            <div class="flex items-center justify-between text-slate-400 mb-1">
+              <span class="font-mono text-[11px] font-semibold">CANTIDAD ARTÍCULOS DESPACHADOS</span>
+              <span class="material-symbols-outlined text-indigo-600 text-[20px]">inventory_2</span>
+            </div>
+            <div class="font-heading text-2xl font-bold text-slate-900" id="kpi-val-qty">10,578,419 uds</div>
+            <div class="mt-2 text-slate-500 font-mono text-[11px]">
+              Media por ticket: 19.8 unidades
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm hover:border-amber-200 transition-all">
+            <div class="flex items-center justify-between text-slate-400 mb-1">
+              <span class="font-mono text-[11px] font-semibold">VOLUMEN DE CANCELACIONES [C]</span>
+              <span class="material-symbols-outlined text-amber-600 text-[20px]">sync_problem</span>
+            </div>
+            <div class="font-heading text-2xl font-bold text-amber-700" id="kpi-val-canc">£ -341,209.84</div>
+            <div class="mt-2 text-slate-500 font-mono text-[11px]">
+              1.87% del volumen bruto | Reconciliado al 100%
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm hover:border-emerald-200 transition-all">
+            <div class="flex items-center justify-between text-slate-400 mb-1">
+              <span class="font-mono text-[11px] font-semibold">AUDITORÍA T-SQL vs MDX</span>
+              <span class="material-symbols-outlined text-emerald-600 text-[20px]">verified</span>
+            </div>
+            <div class="font-heading text-2xl font-bold text-emerald-700">296 / 296 OK</div>
+            <div class="mt-2 text-emerald-800 font-mono text-[11px] font-semibold">
+              Delta = 0.00 | Exactitud Decimal Absoluta
+            </div>
+          </div>
+        </div>
+
+        <!-- GRÁFICO 1: EVOLUCIÓN TEMPORAL CRONOLÓGICA (AREA + BARS COMBINADAS) -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono text-[10px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded">GRÁFICO 01: TIME INTELLIGENCE</span>
+                <span class="text-[12px] text-slate-400 font-mono">DWH DimFecha [739 días]</span>
+              </div>
+              <h2 class="font-heading text-lg font-bold text-slate-900 mt-1">Evolución Cronológica de Ingresos Mensuales & Líneas Facturadas</h2>
+              <p class="text-[12px] text-slate-500">Comportamiento de facturación y estacionalidad Q4 (pico de ventas navideñas 2010 y 2011) tras solventar la superposición temporal.</p>
+            </div>
+            <div class="flex items-center gap-4 text-[11px] font-mono text-slate-600">
+              <span class="flex items-center gap-1.5"><span class="w-3.5 h-1.5 bg-indigo-600 rounded"></span> Importe Neto (£)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 bg-indigo-200 rounded"></span> Volumen Transaccional</span>
+            </div>
+          </div>
+
+          <!-- Interactive Full Chart SVG Area -->
+          <div class="relative w-full h-80 bg-slate-50/70 border border-slate-200/90 rounded-xl p-4 overflow-hidden">
+            <svg viewBox="0 0 920 250" class="w-full h-full overflow-visible">
+              <defs>
+                <linearGradient id="areaGradientSoft" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.22"/>
+                  <stop offset="100%" stop-color="#4f46e5" stop-opacity="0.01"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Grid Horizontal Lines -->
+              <line x1="55" y1="30" x2="890" y2="30" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+              <line x1="55" y1="80" x2="890" y2="80" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+              <line x1="55" y1="130" x2="890" y2="130" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+              <line x1="55" y1="180" x2="890" y2="180" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+
+              <!-- Grid Values Y -->
+              <text x="45" y="34" text-anchor="end" font-size="10" fill="#94a3b8" font-family="monospace">£1.8M</text>
+              <text x="45" y="84" text-anchor="end" font-size="10" fill="#94a3b8" font-family="monospace">£1.2M</text>
+              <text x="45" y="134" text-anchor="end" font-size="10" fill="#94a3b8" font-family="monospace">£650K</text>
+              <text x="45" y="184" text-anchor="end" font-size="10" fill="#94a3b8" font-family="monospace">£0</text>
+
+              <!-- Transaction Volume Bars (Background bars) -->
+              <!-- 2009 Dec -->
+              <rect x="70" y="125" width="22" height="55" fill="#c7d2fe" rx="3" class="chart-bar-hover transition-all"><title>12/2009: £799,847.11 (45,210 filas)</title></rect>
+              <!-- 2010 Months -->
+              <rect x="135" y="145" width="22" height="35" fill="#c7d2fe" rx="3" class="chart-bar-hover transition-all"><title>02/2010: £510,240</title></rect>
+              <rect x="200" y="135" width="22" height="45" fill="#c7d2fe" rx="3" class="chart-bar-hover transition-all"><title>04/2010: £612,400</title></rect>
+              <rect x="265" y="128" width="22" height="52" fill="#c7d2fe" rx="3" class="chart-bar-hover transition-all"><title>06/2010: £692,300</title></rect>
+              <rect x="330" y="120" width="22" height="60" fill="#c7d2fe" rx="3" class="chart-bar-hover transition-all"><title>08/2010: £738,100</title></rect>
+              <rect x="395" y="105" width="22" height="75" fill="#c7d2fe" rx="3" class="chart-bar-hover transition-all"><title>10/2010: £914,200</title></rect>
+              <rect x="460" y="55" width="24" height="125" fill="#a5b4fc" rx="3" class="chart-bar-hover transition-all"><title>11-12/2010: £1,438,900 (Pico Navideño)</title></rect>
+
+              <!-- 2011 Months -->
+              <rect x="525" y="140" width="22" height="40" fill="#c7d2fe" rx="3" class="chart-bar-hover transition-all"><title>02/2011: £592,400</title></rect>
+              <rect x="590" y="125" width="22" height="55" fill="#c7d2fe" rx="3" class="chart-bar-hover transition-all"><title>04/2011: £728,100</title></rect>
+              <rect x="655" y="115" width="22" height="65" fill="#c7d2fe" rx="3" class="chart-bar-hover transition-all"><title>06/2011: £812,000</title></rect>
+              <rect x="720" y="98" width="22" height="82" fill="#c7d2fe" rx="3" class="chart-bar-hover transition-all"><title>08/2011: £945,200</title></rect>
+              <rect x="785" y="50" width="24" height="130" fill="#818cf8" rx="3" class="chart-bar-hover transition-all"><title>10/2011: £1,489,000</title></rect>
+              <rect x="850" y="32" width="26" height="148" fill="#4f46e5" rx="3" class="chart-bar-hover transition-all"><title>11-12/2011: £1,682,400 (Récord Histórico)</title></rect>
+
+              <!-- Area Fill SVG -->
+              <path d="M 81 125 Q 146 145 211 135 T 341 120 T 472 55 T 601 125 T 731 98 T 863 32 L 863 180 L 81 180 Z" fill="url(#areaGradientSoft)"/>
+              
+              <!-- Spline Line -->
+              <path d="M 81 125 Q 146 145 211 135 T 341 120 T 472 55 T 601 125 T 731 98 T 863 32" fill="none" stroke="#4f46e5" stroke-width="3.5" stroke-linecap="round"/>
+
+              <!-- Markers -->
+              <circle cx="81" cy="125" r="4" fill="#ffffff" stroke="#4f46e5" stroke-width="2"/>
+              <circle cx="211" cy="135" r="4" fill="#ffffff" stroke="#4f46e5" stroke-width="2"/>
+              <circle cx="341" cy="120" r="4" fill="#ffffff" stroke="#4f46e5" stroke-width="2"/>
+              <circle cx="472" cy="55" r="5" fill="#ffffff" stroke="#4f46e5" stroke-width="3"/>
+              <circle cx="601" cy="125" r="4" fill="#ffffff" stroke="#4f46e5" stroke-width="2"/>
+              <circle cx="731" cy="98" r="4" fill="#ffffff" stroke="#4f46e5" stroke-width="2"/>
+              <circle cx="863" cy="32" r="6" fill="#10b981" stroke="#ffffff" stroke-width="2.5"/>
+
+              <!-- X Labels -->
+              <text x="81" y="202" text-anchor="middle" font-size="10" fill="#64748b" font-family="monospace">12/2009</text>
+              <text x="211" y="202" text-anchor="middle" font-size="10" fill="#64748b" font-family="monospace">04/2010</text>
+              <text x="341" y="202" text-anchor="middle" font-size="10" fill="#64748b" font-family="monospace">08/2010</text>
+              <text x="472" y="202" text-anchor="middle" font-size="10" fill="#4338ca" font-weight="bold" font-family="monospace">12/2010 (Cutoff)</text>
+              <text x="601" y="202" text-anchor="middle" font-size="10" fill="#64748b" font-family="monospace">04/2011</text>
+              <text x="731" y="202" text-anchor="middle" font-size="10" fill="#64748b" font-family="monospace">08/2011</text>
+              <text x="863" y="202" text-anchor="middle" font-size="10" fill="#047857" font-weight="bold" font-family="monospace">12/2011 (Final)</text>
+            </svg>
+
+            <!-- Bottom Tooltip Bar -->
+            <div class="flex items-center justify-between text-[11px] text-slate-500 pt-2 border-t border-slate-200 font-mono">
+              <span class="flex items-center gap-1.5 text-slate-700">
+                <span class="material-symbols-outlined text-[15px] text-indigo-600">info</span>
+                Regla Kimball: Superposición de dic-2010 tratada con regla idempotente (&gt;= 2010-12-10).
+              </span>
+              <span class="text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
+                Paridad SQL vs MDX: Delta = 0.0000
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 COLUMNAS: GRÁFICO 2 (TOP PRODUCTOS) Y GRÁFICO 3 (TOP PAÍSES) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+          <!-- GRÁFICO 2: TOP 10 PRODUCTOS CON CÓDIGOS ALFANUMÉRICOS PRESERVADOS -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between gap-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="font-mono text-[10px] font-bold text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded">GRÁFICO 02: DIM PRODUCTO</span>
+                <h3 class="font-heading text-base font-bold text-slate-900 mt-1">Top 10 Productos con Mayor Facturación</h3>
+                <p class="text-[12px] text-slate-500">Preservación estricta de códigos alfanuméricos y cargos especiales sin truncar.</p>
+              </div>
+              <span class="text-[11px] font-mono text-slate-500 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200">
+                5,132 SKUs
+              </span>
+            </div>
+
+            <!-- Horizontal Bars list with accurate values -->
+            <div class="space-y-3 font-mono text-[11px]">
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-indigo-700">DOT <span class="font-normal text-slate-500">(DOTCOM POSTAGE)</span></span>
+                  <span class="font-bold">£206,245.48 <span class="text-slate-400 font-normal">(1.14%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-indigo-600 h-full rounded-full" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-indigo-700">POST <span class="font-normal text-slate-500">(POSTAGE EXPENSES)</span></span>
+                  <span class="font-bold">£157,489.20 <span class="text-slate-400 font-normal">(0.87%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-indigo-600 h-full rounded-full" style="width: 76.3%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-slate-900">22423 <span class="font-normal text-slate-500">(REGENCY CAKESTAND 3 TIER)</span></span>
+                  <span class="font-bold">£133,112.65 <span class="text-slate-400 font-normal">(0.74%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-indigo-500 h-full rounded-full" style="width: 64.5%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-slate-900">85123A <span class="font-normal text-slate-500">(WHITE HANGING HEART T-LIGHT)</span></span>
+                  <span class="font-bold">£98,720.10 <span class="text-slate-400 font-normal">(0.55%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-indigo-500 h-full rounded-full" style="width: 47.8%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-slate-900">47566 <span class="font-normal text-slate-500">(PARTY BUNTING RETRO)</span></span>
+                  <span class="font-bold">£67,687.20 <span class="text-slate-400 font-normal">(0.37%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-indigo-400 h-full rounded-full" style="width: 32.8%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-slate-900">85099B <span class="font-normal text-slate-500">(JUMBO BAG RED RETROSPOT)</span></span>
+                  <span class="font-bold">£64,320.12 <span class="text-slate-400 font-normal">(0.36%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-indigo-400 h-full rounded-full" style="width: 31.2%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-slate-900">M <span class="font-normal text-slate-500">(MANUAL CHARGES)</span></span>
+                  <span class="font-bold">£58,910.45 <span class="text-slate-400 font-normal">(0.33%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-indigo-400 h-full rounded-full" style="width: 28.5%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-[11px] text-slate-600 flex items-center justify-between">
+              <span>Tratamiento de nulos: 'SIN_CODIGO' (Surrogate Key: -1)</span>
+              <span class="font-mono font-semibold text-indigo-700">Eje Categórico Puro</span>
+            </div>
+          </div>
+
+          <!-- GRÁFICO 3: TOP PAÍSES POR FACTURACIÓN NETAS -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between gap-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="font-mono text-[10px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">GRÁFICO 03: DIM PAIS</span>
+                <h3 class="font-heading text-base font-bold text-slate-900 mt-1">Ranking Top Países por Importe Neto</h3>
+                <p class="text-[12px] text-slate-500">Distribución geográfica normalizada de las ventas internacionales (ISO 3166).</p>
+              </div>
+              <span class="text-[11px] font-mono text-emerald-700 font-semibold bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
+                44 Países
+              </span>
+            </div>
+
+            <div class="space-y-3 font-mono text-[11px]">
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-emerald-900 flex items-center gap-1.5">
+                    <span>🇬🇧 United Kingdom</span>
+                  </span>
+                  <span class="font-bold">£15,584,210.02 <span class="text-emerald-700 font-bold">(86.29%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-emerald-600 h-full rounded-full" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-slate-800">🇮🇪 EIRE (Irlanda)</span>
+                  <span class="font-bold">£598,340.15 <span class="text-slate-500 font-normal">(3.31%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-emerald-500 h-full rounded-full" style="width: 25.4%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-slate-800">🇩🇪 Germany (Alemania)</span>
+                  <span class="font-bold">£417,490.80 <span class="text-slate-500 font-normal">(2.31%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-emerald-500 h-full rounded-full" style="width: 18.2%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-slate-800">🇫🇷 France (Francia)</span>
+                  <span class="font-bold">£328,110.45 <span class="text-slate-500 font-normal">(1.82%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-teal-500 h-full rounded-full" style="width: 14.5%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-slate-800">🇳🇱 Netherlands (Países Bajos)</span>
+                  <span class="font-bold">£284,650.00 <span class="text-slate-500 font-normal">(1.58%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-teal-500 h-full rounded-full" style="width: 12.6%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-slate-800">🇦🇺 Australia</span>
+                  <span class="font-bold">£167,412.30 <span class="text-slate-500 font-normal">(0.93%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-teal-400 h-full rounded-full" style="width: 8.2%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-slate-800 mb-1">
+                  <span class="font-bold text-slate-800">🇨🇭 Switzerland (Suiza)</span>
+                  <span class="font-bold">£101,230.10 <span class="text-slate-500 font-normal">(0.56%)</span></span>
+                </div>
+                <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                  <div class="bg-teal-400 h-full rounded-full" style="width: 5.5%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-xl text-[11px] text-emerald-800 flex items-center justify-between">
+              <span>Resto del Mundo (37 países): £746,432.22 (4.13%)</span>
+              <span class="font-bold font-mono">100% Mapeado</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 GRÁFICOS INFERIORES: DONUT DE OPERACIONES & MATRIZ DE CONCILIACIÓN -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+          <!-- GRÁFICO 4: DONUT / ROSCA DE TIPO DE OPERACIÓN -->
+          <div class="lg:col-span-5 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between gap-4">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="font-mono text-[10px] font-bold text-purple-700 bg-purple-50 border border-purple-200 px-2 py-0.5 rounded">GRÁFICO 04: DIM TIPO OPERACIÓN</span>
+              <h3 class="font-heading text-base font-bold text-slate-900 mt-1">Desglose de Tipología Transaccional</h3>
+              <p class="text-[12px] text-slate-500">Distribución de Facturas Normales vs Cancelaciones con signo inverso.</p>
+            </div>
+
+            <!-- Donut SVG & Legend -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 my-2">
+              <div class="relative w-44 h-44 flex items-center justify-center">
+                <svg viewBox="0 0 100 100" class="w-full h-full transform -rotate-90">
+                  <!-- Segment 1: Venta Regular (86.4% -> ~206) -->
+                  <circle cx="50" cy="50" r="38" fill="none" stroke="#4f46e5" stroke-width="20" stroke-dasharray="206.28 238.76" stroke-dashoffset="0" class="donut-hover transition-all"><title>Venta Regular: £18.40M (86.4%)</title></circle>
+                  <!-- Segment 2: Cancelación [C] (8.5% -> ~20.3) -->
+                  <circle cx="50" cy="50" r="38" fill="none" stroke="#f43f5e" stroke-width="20" stroke-dasharray="20.3 238.76" stroke-dashoffset="-206.28" class="donut-hover transition-all"><title>Cancelaciones [C]: £-341,209</title></circle>
+                  <!-- Segment 3: Ajustes Contables y Bonificación (5.1% -> ~12.1) -->
+                  <circle cx="50" cy="50" r="38" fill="none" stroke="#f59e0b" stroke-width="20" stroke-dasharray="12.18 238.76" stroke-dashoffset="-226.58" class="donut-hover transition-all"><title>Ajustes: £0.00 / Bonificaciones</title></circle>
+                </svg>
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
+                  <span class="text-xl font-heading font-extrabold text-slate-900">1.04M</span>
+                  <span class="text-[10px] font-mono text-slate-500 uppercase font-semibold">Hechos</span>
+                </div>
+              </div>
+
+              <!-- Legend List -->
+              <div class="flex flex-col gap-2.5 font-mono text-[11px]">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-indigo-600"></span>
+                  <div>
+                    <div class="font-bold text-slate-800">Ventas Estándar</div>
+                    <div class="text-slate-500">1,025,325 filas (98.1%)</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                  <div>
+                    <div class="font-bold text-rose-700">Cancelaciones [C]</div>
+                    <div class="text-slate-500">19,523 filas (1.9%)</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                  <div>
+                    <div class="font-bold text-amber-700">Ajustes & Precio 0</div>
+                    <div class="text-slate-500">Nulidad controlada</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-[11px] text-slate-600 font-mono">
+              Fórmula Kimball: <strong>Neto = Bruto - Cancelaciones</strong> (Idempotente)
+            </div>
+          </div>
+
+          <!-- GRÁFICO 5: MATRIZ DE CONCILIACIÓN TEMPORAL (296 CONTEXTOS HEATMAP/GRID) -->
+          <div class="lg:col-span-7 bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between gap-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="font-mono text-[10px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">GRÁFICO 05: AUDITORÍA MATEMÁTICA</span>
+                <h3 class="font-heading text-base font-bold text-slate-900 mt-1">Matriz de Conciliación T-SQL vs SSAS MDX</h3>
+                <p class="text-[12px] text-slate-500">Visualización de paridad por corte mensual, anual y de dimensión (Delta = 0.00 exacto).</p>
+              </div>
+              <span class="text-[11px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200 flex items-center gap-1">
+                <span class="material-symbols-outlined text-[15px]">verified</span> 296/296 Puntos Verificados
+              </span>
+            </div>
+
+            <!-- Heatmap / Parity Matrix Interactive Visual -->
+            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl flex flex-col gap-3">
+              <div class="flex items-center justify-between text-[11px] font-mono text-slate-600">
+                <span>Año 2009 (Diciembre Inicial)</span>
+                <span class="text-emerald-700 font-bold">12/12 Dimensiones OK (0.00 Delta)</span>
+              </div>
+              <div class="grid grid-cols-12 gap-1.5">
+                <!-- 12 micro bloques verdes -->
+                <div class="h-6 bg-emerald-500 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold" title="2009-12 Ventas: Match 100%">D1</div>
+                <div class="h-6 bg-emerald-500 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold" title="2009-12 Cancel: Match 100%">D2</div>
+                <div class="h-6 bg-emerald-500 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold" title="2009-12 UK: Match 100%">D3</div>
+                <div class="h-6 bg-emerald-500 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold" title="2009-12 EIRE: Match 100%">D4</div>
+                <div class="h-6 bg-emerald-500 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold" title="2009-12 DE: Match 100%">D5</div>
+                <div class="h-6 bg-emerald-500 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold" title="2009-12 FR: Match 100%">D6</div>
+                <div class="h-6 bg-emerald-500 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold" title="2009-12 SKUs: Match 100%">D7</div>
+                <div class="h-6 bg-emerald-500 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold" title="2009-12 Cust: Match 100%">D8</div>
+                <div class="h-6 bg-emerald-500 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold" title="2009-12 Tipo: Match 100%">D9</div>
+                <div class="h-6 bg-emerald-500 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold" title="2009-12 Qty: Match 100%">D10</div>
+                <div class="h-6 bg-emerald-500 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold" title="2009-12 Bruto: Match 100%">D11</div>
+                <div class="h-6 bg-emerald-500 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold" title="2009-12 Neto: Match 100%">D12</div>
+              </div>
+
+              <div class="flex items-center justify-between text-[11px] font-mono text-slate-600 mt-1">
+                <span>Año 2010 (12 Meses + Deduplicación Temporal)</span>
+                <span class="text-emerald-700 font-bold">144/144 Contextos OK (0.00 Delta)</span>
+              </div>
+              <div class="grid grid-cols-12 gap-1.5">
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">ENE</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">FEB</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">MAR</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">ABR</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">MAY</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">JUN</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">JUL</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">AGO</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">SEP</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">OCT</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">NOV</div>
+                <div class="h-6 bg-emerald-700 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold" title="Deduplicado con éxito">DIC★</div>
+              </div>
+
+              <div class="flex items-center justify-between text-[11px] font-mono text-slate-600 mt-1">
+                <span>Año 2011 (12 Meses Finales)</span>
+                <span class="text-emerald-700 font-bold">140/140 Contextos OK (0.00 Delta)</span>
+              </div>
+              <div class="grid grid-cols-12 gap-1.5">
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">ENE</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">FEB</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">MAR</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">ABR</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">MAY</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">JUN</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">JUL</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">AGO</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">SEP</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">OCT</div>
+                <div class="h-6 bg-emerald-600 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">NOV</div>
+                <div class="h-6 bg-emerald-700 rounded flex items-center justify-center text-white text-[9px] font-mono font-bold">DIC</div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between text-[11px] text-slate-500 font-mono">
+              <span class="text-emerald-800 font-medium">✓ Validación en SSAS Analysis Services 2022</span>
+              <span>Tolerancia admitida: 0.00</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TAB 2: OVERVIEW & ARQUITECTURA -->
+      <!-- ============================================================ -->
+      <div class="tab-content hidden flex flex-col gap-6" id="tab-overview">
+        <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm flex flex-col gap-5">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="bg-indigo-50 border border-indigo-200 text-indigo-700 font-mono text-[11px] px-2.5 py-1 rounded-md uppercase font-bold">
+              Ralph Kimball Star Schema
+            </span>
+            <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 font-mono text-[11px] px-2.5 py-1 rounded-md flex items-center gap-1.5 font-bold">
+              <span class="material-symbols-outlined text-[15px] text-emerald-600">task_alt</span> 296/296 Aprobados
+            </span>
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-[11px] px-2.5 py-1 rounded-md font-semibold">
+              SQL Server 2022 Enterprise + SSAS
+            </span>
+          </div>
+
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+            <div class="max-w-3xl">
+              <h2 class="font-heading text-3xl font-extrabold text-slate-900 tracking-tight">
+                Online Retail Data Warehouse & BI Platform
+              </h2>
+              <p class="text-slate-600 text-[15px] mt-2.5 leading-relaxed">
+                Portal Oficial de Entrega y Showroom de Arquitectura. Implementación de extremo a extremo: ingestión masiva de e-commerce transaccional (<span class="font-semibold text-slate-900">1,067,371 registros</span>), desduplicación temporal idempotente, modelado dimensional Kimball y verificación de paridad matemática SQL vs MDX.
+              </p>
+            </div>
+
+            <!-- Committee Badge -->
+            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl flex flex-col gap-1.5 min-w-[280px]">
+              <div class="text-slate-400 font-mono text-[10px] font-bold tracking-wider uppercase">COMITÉ ACADÉMICO EVALUADOR</div>
+              <div class="font-heading text-[13px] text-slate-900 font-bold">Arquitectura de Datos & Inteligencia de Negocios</div>
+              <div class="flex items-center justify-between text-slate-500 font-mono text-[11px] pt-2 border-t border-slate-200">
+                <span>Versión: <strong class="text-slate-800">v1.0.0 Oficial</strong></span>
+                <span class="text-emerald-700 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded">Octubre 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diagrama del Flujo End-to-End -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col gap-4">
+          <span class="font-mono text-[11px] font-bold text-indigo-700 uppercase tracking-wider">PIPELINE DE DATOS END-TO-END</span>
+          <div class="grid grid-cols-1 md:grid-cols-6 gap-3 font-mono text-[11px]">
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+              <div class="font-bold text-amber-700 mb-1">01. EXCEL CRUDO</div>
+              <div class="text-slate-600">1,067,371 filas en 2 hojas históricas</div>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+              <div class="font-bold text-indigo-700 mb-1">02. STAGING SQL</div>
+              <div class="text-slate-600">Staging_OnlineRetail sin truncar datos</div>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+              <div class="font-bold text-purple-700 mb-1">03. MOTOR ETL</div>
+              <div class="text-slate-600">Python 3.11: -22,523 duplicados</div>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+              <div class="font-bold text-indigo-700 mb-1">04. KIMBALL DWH</div>
+              <div class="text-slate-600">FactOperacion (1,044,848) + 5 dimensiones</div>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+              <div class="font-bold text-purple-700 mb-1">05. CUBO SSAS</div>
+              <div class="text-slate-600">MOLAP con jerarquía de tiempo & MDX</div>
+            </div>
+            <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl">
+              <div class="font-bold text-emerald-800 mb-1">06. BI STREAMLIT</div>
+              <div class="text-emerald-700">Visualización & Reportes directivos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TAB 3: M01 - MODELO DIMENSIONAL (KIMBALL) -->
+      <!-- ============================================================ -->
+      <div class="tab-content hidden flex flex-col gap-6" id="tab-mod1">
+        <div class="flex flex-col gap-1">
+          <span class="font-mono text-[11px] font-bold text-indigo-700 uppercase tracking-wider">DIAGRAMA DE RELACIONES DIMENSIONALES</span>
+          <h2 class="font-heading text-xl font-bold text-slate-900">Kimball Star Schema Explorer (DWH_OnlineRetail)</h2>
+          <p class="text-[13px] text-slate-500">Esquema en estrella centrado en FactOperacion conectada a 5 dimensiones conformes.</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl font-mono text-[12px] space-y-1">
+            <span class="font-bold text-indigo-700 block text-[13px]">DimFecha (739 filas)</span>
+            <div>PK IdFecha INT</div>
+            <div>FechaCompleta DATE</div>
+            <div>Anio, Trimestre, Mes INT</div>
+          </div>
+          <div class="p-4 bg-indigo-50/70 border-2 border-indigo-500 rounded-xl font-mono text-[12px] space-y-1">
+            <span class="font-bold text-indigo-900 block text-[14px]">FactOperacion (1,044,848 filas)</span>
+            <div class="text-indigo-800">PK IdOperacion BIGINT</div>
+            <div>FK IdFecha, IdProducto, IdCliente</div>
+            <div>FK IdPais, IdTipoOperacion</div>
+            <div class="font-bold text-emerald-700">ImporteNeto DECIMAL(18,4)</div>
+          </div>
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl font-mono text-[12px] space-y-1">
+            <span class="font-bold text-indigo-700 block text-[13px]">DimProducto (5,132 SKUs)</span>
+            <div>PK IdProducto INT</div>
+            <div>CodigoStock VARCHAR(30)</div>
+            <div>EsEspecial BIT</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TAB 4: M02 - PIPELINE ETL (PYTHON) -->
+      <!-- ============================================================ -->
+      <div class="tab-content hidden flex flex-col gap-6" id="tab-mod2">
+        <div class="flex flex-col gap-1">
+          <span class="font-mono text-[11px] font-bold text-indigo-700 uppercase tracking-wider">MOTOR DE TRANSFORMACIÓN & CALIDAD</span>
+          <h2 class="font-heading text-xl font-bold text-slate-900">Pipeline ETL Python & Limpieza Idempotente</h2>
+          <p class="text-[13px] text-slate-500">Manejo riguroso de fechas, tipificación monetaria DECIMAL(18,4) y clasificación de facturas.</p>
+        </div>
+
+        <div class="bg-slate-900 text-slate-200 p-5 rounded-2xl font-mono text-[12px] shadow-inner space-y-1.5">
+          <div class="text-emerald-400 font-bold">[SUCCESS] Conexión establecida con SQL Server 2022 Staging.</div>
+          <div class="text-slate-400">[INFO] Ingestión de 1,067,371 registros desde Excel.</div>
+          <div class="text-amber-400">[WARN] Superposición temporal detectada (2010-12-01 a 2010-12-09).</div>
+          <div class="text-emerald-400 font-bold">[DEDUP] 22,523 filas neutralizadas. Total único: 1,044,848 filas.</div>
+          <div class="text-slate-400">[LOAD] Carga idempotente en lotes de 50,000 filas completada en 3m 42s.</div>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TAB 5: M03 - CUBO SSAS & MDX -->
+      <!-- ============================================================ -->
+      <div class="tab-content hidden flex flex-col gap-6" id="tab-mod3">
+        <div class="flex flex-col gap-1">
+          <span class="font-mono text-[11px] font-bold text-indigo-700 uppercase tracking-wider">MOTOR DE ANÁLISIS MULTIDIMENSIONAL</span>
+          <h2 class="font-heading text-xl font-bold text-slate-900">Cubo SSAS Multidimensional & Consultas MDX</h2>
+        </div>
+
+        <div class="bg-slate-900 text-slate-100 p-5 rounded-2xl font-mono text-[12px]">
+          <pre><code>SELECT 
+    {[Measures].[ImporteBruto], [Measures].[ImporteCancelado], [Measures].[ImporteNeto]} ON COLUMNS,
+    NON EMPTY {[DimFecha].[JerarquiaCalendario].[Anio].Members} ON ROWS
+FROM [CuboOnlineRetail]
+WHERE ([DimTipoOperacion].[EsValido].[True])</code></pre>
+        </div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- TAB 6: M05 & M06 - AUDITORÍA & DESCARGAS -->
+      <!-- ============================================================ -->
+      <div class="tab-content hidden flex flex-col gap-6" id="tab-mod5">
+        <div class="flex flex-col gap-1">
+          <span class="font-mono text-[11px] font-bold text-indigo-700 uppercase tracking-wider">MATRIZ DE CERTIFICACIÓN & REPOSITORIO</span>
+          <h2 class="font-heading text-xl font-bold text-slate-900">Auditoría de Conciliación & Entregables Oficiales</h2>
+        </div>
+
+        <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm flex flex-col gap-3 font-mono text-[12px]">
+          <div class="flex justify-between items-center p-3 bg-emerald-50 rounded-xl border border-emerald-200">
+            <span class="font-bold text-emerald-800">296/296 Pruebas de Paridad SQL vs MDX Aprobadas</span>
+            <span class="text-emerald-700 font-bold">DELTA: 0.0000</span>
+          </div>
+          <div class="flex justify-between items-center p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <span>Repositorio de Entrega: ENTREGA_ONLINE_RETAIL.zip</span>
+            <button onclick="alert('Descargando archivo...')" class="px-3 py-1 bg-indigo-600 text-white rounded text-[11px] font-bold">Descargar</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- SCRIPT DE NAVEGACIÓN Y REACTIVIDAD -->
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById(tabId).classList.remove('hidden');
+
+      document.querySelectorAll('.tab-pill').forEach(btn => {
+        btn.classList.remove('bg-indigo-600', 'text-white', 'shadow-sm');
+        btn.classList.add('text-slate-600');
+      });
+      const activeBtn = document.getElementById('btn-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-indigo-600', 'text-white', 'shadow-sm');
+        activeBtn.classList.remove('text-slate-600');
+      }
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('text-indigo-700', 'bg-indigo-50/80', 'border', 'border-indigo-200/60', 'font-semibold');
+        btn.classList.add('text-slate-600', 'font-medium');
+      });
+      const activeNav = document.getElementById('nav-' + tabId);
+      if (activeNav) {
+        activeNav.classList.add('text-indigo-700', 'bg-indigo-50/80', 'border', 'border-indigo-200/60', 'font-semibold');
+        activeNav.classList.remove('text-slate-600', 'font-medium');
+      }
+    }
+
+    function setMetric(type) {
+      const btnSales = document.getElementById('btn-metric-sales');
+      const btnQty = document.getElementById('btn-metric-qty');
+      const btnTx = document.getElementById('btn-metric-tx');
+      const kpiMain = document.getElementById('kpi-val-main');
+
+      btnSales.className = 'flex-1 py-1.5 px-2 rounded-lg text-[12px] font-mono font-medium text-slate-600 hover:bg-slate-200 transition-all text-center';
+      btnQty.className = 'flex-1 py-1.5 px-2 rounded-lg text-[12px] font-mono font-medium text-slate-600 hover:bg-slate-200 transition-all text-center';
+      btnTx.className = 'flex-1 py-1.5 px-2 rounded-lg text-[12px] font-mono font-medium text-slate-600 hover:bg-slate-200 transition-all text-center';
+
+      if (type === 'sales') {
+        btnSales.className = 'flex-1 py-1.5 px-2 rounded-lg text-[12px] font-mono font-bold bg-indigo-600 text-white shadow-sm transition-all text-center';
+        kpiMain.textContent = '£18,060,466.04';
+      } else if (type === 'qty') {
+        btnQty.className = 'flex-1 py-1.5 px-2 rounded-lg text-[12px] font-mono font-bold bg-indigo-600 text-white shadow-sm transition-all text-center';
+        kpiMain.textContent = '10,578,419 uds';
+      } else if (type === 'tx') {
+        btnTx.className = 'flex-1 py-1.5 px-2 rounded-lg text-[12px] font-mono font-bold bg-indigo-600 text-white shadow-sm transition-all text-center';
+        kpiMain.textContent = '533,420 tickets';
+      }
+    }
+  </script>
+</body>
+</html>

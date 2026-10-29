@@ -1,0 +1,62 @@
+﻿[
+    {
+        "Consulta":  "05_calculos.mdx",
+        "Tipo":  "RESULTADO",
+        "Texto":  "[Measures].[Importe Ventas y cargos] = 20533741.918"
+    },
+    {
+        "Consulta":  "05_calculos.mdx",
+        "Tipo":  "RESULTADO",
+        "Texto":  "[Measures].[Importe Cancelacion] = -1465677.23"
+    },
+    {
+        "Consulta":  "05_calculos.mdx",
+        "Tipo":  "RESULTADO",
+        "Texto":  "[Measures].[Neto Ventas y cargos mas Cancelacion] = 19068064.688"
+    },
+    {
+        "Consulta":  "05_calculos.mdx",
+        "Tipo":  "RESULTADO",
+        "Texto":  "[Measures].[Importe Ajuste contable] = -158676.14"
+    },
+    {
+        "Consulta":  "05_calculos.mdx",
+        "Tipo":  "RESULTADO",
+        "Texto":  "[Measures].[Operaciones Precio cero] = 6024"
+    },
+    {
+        "Consulta":  "05_calculos.mdx",
+        "Tipo":  "RESULTADO",
+        "Texto":  "[Measures].[Importe Precio cero] = 0"
+    },
+    {
+        "Consulta":  "05_calculos.mdx",
+        "Tipo":  "RESULTADO",
+        "Texto":  "[Measures].[Operaciones Por revisar] = 1"
+    },
+    {
+        "Consulta":  "05_calculos.mdx",
+        "Tipo":  "RESULTADO",
+        "Texto":  "[Measures].[Importe Por revisar] = 373.57"
+    },
+    {
+        "Consulta":  "06_filtro_tipo.mdx",
+        "Tipo":  "RESULTADO",
+        "Texto":  "[Measures].[Importe] = 0"
+    },
+    {
+        "Consulta":  "06_filtro_tipo.mdx",
+        "Tipo":  "RESULTADO",
+        "Texto":  "[Measures].[Importe Ventas y cargos] = 20533741.918"
+    },
+    {
+        "Consulta":  "06_filtro_tipo.mdx",
+        "Tipo":  "RESULTADO",
+        "Texto":  "[Measures].[Importe Cancelacion] = -1465677.23"
+    },
+    {
+        "Consulta":  "06_filtro_tipo.mdx",
+        "Tipo":  "RESULTADO",
+        "Texto":  "[Measures].[Neto Ventas y cargos mas Cancelacion] = 19068064.688"
+    }
+]

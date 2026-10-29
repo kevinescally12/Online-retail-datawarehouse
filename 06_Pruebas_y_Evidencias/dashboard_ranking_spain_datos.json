@@ -1,0 +1,82 @@
+[
+  {
+    "Código de producto": "POST",
+    "Categoría": "Envío o transporte",
+    "Importe": "8507",
+    "Cantidad firmada": 301,
+    "Conteo operaciones": 101,
+    "Facturas distintas": 101
+  },
+  {
+    "Código de producto": "84997d",
+    "Categoría": "Por clasificar",
+    "Importe": "6154.47",
+    "Cantidad firmada": 1737,
+    "Conteo operaciones": 9,
+    "Facturas distintas": 9
+  },
+  {
+    "Código de producto": "84997c",
+    "Categoría": "Por clasificar",
+    "Importe": "5867.87",
+    "Cantidad firmada": 1661,
+    "Conteo operaciones": 8,
+    "Facturas distintas": 8
+  },
+  {
+    "Código de producto": "22423",
+    "Categoría": "Por clasificar",
+    "Importe": "2132.1",
+    "Cantidad firmada": 174,
+    "Conteo operaciones": 33,
+    "Facturas distintas": 33
+  },
+  {
+    "Código de producto": "84997B",
+    "Categoría": "Por clasificar",
+    "Importe": "1777",
+    "Cantidad firmada": 508,
+    "Conteo operaciones": 6,
+    "Facturas distintas": 6
+  },
+  {
+    "Código de producto": "84879",
+    "Categoría": "Por clasificar",
+    "Importe": "1628.41",
+    "Cantidad firmada": 1009,
+    "Conteo operaciones": 24,
+    "Facturas distintas": 24
+  },
+  {
+    "Código de producto": "84997a",
+    "Categoría": "Por clasificar",
+    "Importe": "1262.92",
+    "Cantidad firmada": 364,
+    "Conteo operaciones": 4,
+    "Facturas distintas": 4
+  },
+  {
+    "Código de producto": "20728",
+    "Categoría": "Por clasificar",
+    "Importe": "903.1",
+    "Cantidad firmada": 614,
+    "Conteo operaciones": 10,
+    "Facturas distintas": 10
+  },
+  {
+    "Código de producto": "84760L",
+    "Categoría": "Por clasificar",
+    "Importe": "896",
+    "Cantidad firmada": 560,
+    "Conteo operaciones": 1,
+    "Facturas distintas": 1
+  },
+  {
+    "Código de producto": "22341",
+    "Categoría": "Por clasificar",
+    "Importe": "835.2",
+    "Cantidad firmada": 576,
+    "Conteo operaciones": 5,
+    "Facturas distintas": 5
+  }
+]

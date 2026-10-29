@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>OnlineRetail</ID>
+  <Name>Online Retail</Name>
+  <Dimensions>
+    <Dimension>
+      <ID>DimFecha</ID>
+      <Name>Fecha</Name>
+      <DimensionID>DimFecha</DimensionID>
+      <Attributes>
+        <Attribute>
+          <AttributeID>Fecha</AttributeID>
+        </Attribute>
+        <Attribute>
+          <AttributeID>Anio</AttributeID>
+        </Attribute>
+        <Attribute>
+          <AttributeID>Trimestre</AttributeID>
+        </Attribute>
+        <Attribute>
+          <AttributeID>Mes</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy>
+          <HierarchyID>Calendario</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension>
+      <ID>DimProducto</ID>
+      <Name>Producto</Name>
+      <DimensionID>DimProducto</DimensionID>
+      <Attributes>
+        <Attribute>
+          <AttributeID>Producto</AttributeID>
+        </Attribute>
+        <Attribute>
+          <AttributeID>Codigo</AttributeID>
+        </Attribute>
+        <Attribute>
+          <AttributeID>Categoria</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension>
+      <ID>DimCliente</ID>
+      <Name>Cliente</Name>
+      <DimensionID>DimCliente</DimensionID>
+      <Attributes>
+        <Attribute>
+          <AttributeID>Cliente</AttributeID>
+        </Attribute>
+        <Attribute>
+          <AttributeID>TipoCliente</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension>
+      <ID>DimPais</ID>
+      <Name>Pais</Name>
+      <DimensionID>DimPais</DimensionID>
+      <Attributes>
+        <Attribute>
+          <AttributeID>Pais</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension>
+      <ID>DimTipoOperacion</ID>
+      <Name>TipoOperacion</Name>
+      <DimensionID>DimTipoOperacion</DimensionID>
+      <Attributes>
+        <Attribute>
+          <AttributeID>TipoOperacion</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Operaciones</ID>
+      <Name>Operaciones</Name>
+      <Measures>
+        <Measure>
+          <ID>Importe</ID>
+          <Name>Importe</Name>
+          <DataType>Currency</DataType>
+          <Source>
+            <DataType>Currency</DataType>
+            <NullProcessing>Preserve</NullProcessing>
+            <Source xsi:type="ColumnBinding">
+              <TableID>dbo_FactOperacion</TableID>
+              <ColumnID>Importe</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,##0.0000;-#,##0.0000</FormatString>
+        </Measure>
+        <Measure>
+          <ID>Cantidad firmada</ID>
+          <Name>Cantidad firmada</Name>
+          <DataType>BigInt</DataType>
+          <Source>
+            <DataType>BigInt</DataType>
+            <NullProcessing>Preserve</NullProcessing>
+            <Source xsi:type="ColumnBinding">
+              <TableID>dbo_FactOperacion</TableID>
+              <ColumnID>Cantidad</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,##0;-#,##0</FormatString>
+        </Measure>
+        <Measure>
+          <ID>Conteo operaciones</ID>
+          <Name>Conteo operaciones</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <DataType>BigInt</DataType>
+          <Source>
+            <DataType>BigInt</DataType>
+            <NullProcessing>Preserve</NullProcessing>
+            <Source xsi:type="ColumnBinding">
+              <TableID>dbo_FactOperacion</TableID>
+              <ColumnID>OperacionKey</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,##0;-#,##0</FormatString>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ErrorConfiguration>
+        <KeyNotFound>ReportAndStop</KeyNotFound>
+        <KeyDuplicate>ReportAndStop</KeyDuplicate>
+        <NullKeyConvertedToUnknown>ReportAndStop</NullKeyConvertedToUnknown>
+        <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+        <ddl200:CalculationError>ReportAndStop</ddl200:CalculationError>
+      </ErrorConfiguration>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>DimFecha</CubeDimensionID>
+          <Attributes>
+            <Attribute>
+              <AttributeID>Fecha</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_FactOperacion</TableID>
+                    <ColumnID>FechaKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>DimProducto</CubeDimensionID>
+          <Attributes>
+            <Attribute>
+              <AttributeID>Producto</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_FactOperacion</TableID>
+                    <ColumnID>ProductoKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>DimCliente</CubeDimensionID>
+          <Attributes>
+            <Attribute>
+              <AttributeID>Cliente</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_FactOperacion</TableID>
+                    <ColumnID>ClienteKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>DimPais</CubeDimensionID>
+          <Attributes>
+            <Attribute>
+              <AttributeID>Pais</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_FactOperacion</TableID>
+                    <ColumnID>PaisKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>DimTipoOperacion</CubeDimensionID>
+          <Attributes>
+            <Attribute>
+              <AttributeID>TipoOperacion</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_FactOperacion</TableID>
+                    <ColumnID>TipoOperacionKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions>
+        <Partition>
+          <ID>Operaciones</ID>
+          <Name>Operaciones</Name>
+          <Source xsi:type="TableBinding">
+            <DataSourceID>OnlineRetailDW</DataSourceID>
+            <DbSchemaName>dbo</DbSchemaName>
+            <DbTableName>FactOperacion</DbTableName>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Facturas</ID>
+      <Name>Facturas distintas</Name>
+      <Measures>
+        <Measure>
+          <ID>Facturas distintas</ID>
+          <Name>Facturas distintas</Name>
+          <AggregateFunction>DistinctCount</AggregateFunction>
+          <DataType>BigInt</DataType>
+          <Source>
+            <DataType>WChar</DataType>
+            <DataSize>50</DataSize>
+            <NullProcessing>ZeroOrBlank</NullProcessing>
+            <Source xsi:type="ColumnBinding">
+              <TableID>dbo_FactOperacion</TableID>
+              <ColumnID>NumeroFactura</ColumnID>
+            </Source>
+          </Source>
+          <FormatString>#,##0</FormatString>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ErrorConfiguration>
+        <KeyNotFound>ReportAndStop</KeyNotFound>
+        <KeyDuplicate>ReportAndStop</KeyDuplicate>
+        <NullKeyConvertedToUnknown>ReportAndStop</NullKeyConvertedToUnknown>
+        <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+        <ddl200:CalculationError>ReportAndStop</ddl200:CalculationError>
+      </ErrorConfiguration>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>DimFecha</CubeDimensionID>
+          <Attributes>
+            <Attribute>
+              <AttributeID>Fecha</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_FactOperacion</TableID>
+                    <ColumnID>FechaKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>DimProducto</CubeDimensionID>
+          <Attributes>
+            <Attribute>
+              <AttributeID>Producto</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_FactOperacion</TableID>
+                    <ColumnID>ProductoKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>DimCliente</CubeDimensionID>
+          <Attributes>
+            <Attribute>
+              <AttributeID>Cliente</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_FactOperacion</TableID>
+                    <ColumnID>ClienteKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>DimPais</CubeDimensionID>
+          <Attributes>
+            <Attribute>
+              <AttributeID>Pais</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_FactOperacion</TableID>
+                    <ColumnID>PaisKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension">
+          <CubeDimensionID>DimTipoOperacion</CubeDimensionID>
+          <Attributes>
+            <Attribute>
+              <AttributeID>TipoOperacion</AttributeID>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>dbo_FactOperacion</TableID>
+                    <ColumnID>TipoOperacionKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions>
+        <Partition>
+          <ID>Facturas</ID>
+          <Name>Facturas</Name>
+          <Source xsi:type="QueryBinding">
+            <DataSourceID>OnlineRetailDW</DataSourceID>
+            <QueryDefinition>SELECT * FROM dbo.FactOperacion WHERE NumeroFactura IS NOT NULL</QueryDefinition>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source>
+    <DataSourceViewID>OnlineRetailDSV</DataSourceViewID>
+  </Source>
+  <MdxScripts>
+    <MdxScript>
+      <ID>Calculos</ID>
+      <Name>Calculos</Name>
+      <Commands>
+        <Command>
+          <Text>CALCULATE;
+CREATE MEMBER CURRENTCUBE.[Measures].[Importe Ventas y cargos] AS
+ ([Measures].[Importe],[TipoOperacion].[TipoOperacion].&amp;[1]), FORMAT_STRING='#,##0.0000;-#,##0.0000', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Importe Cancelacion] AS
+ ([Measures].[Importe],[TipoOperacion].[TipoOperacion].&amp;[2]), FORMAT_STRING='#,##0.0000;-#,##0.0000', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Neto Ventas y cargos mas Cancelacion] AS
+ [Measures].[Importe Ventas y cargos]+[Measures].[Importe Cancelacion], FORMAT_STRING='#,##0.0000;-#,##0.0000', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Importe Ajuste contable] AS
+ ([Measures].[Importe],[TipoOperacion].[TipoOperacion].&amp;[3]), FORMAT_STRING='#,##0.0000;-#,##0.0000', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Operaciones Precio cero] AS
+ ([Measures].[Conteo operaciones],[TipoOperacion].[TipoOperacion].&amp;[4]), FORMAT_STRING='#,##0', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Importe Precio cero] AS
+ ([Measures].[Importe],[TipoOperacion].[TipoOperacion].&amp;[4]), FORMAT_STRING='#,##0.0000;-#,##0.0000', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Operaciones Por revisar] AS
+ ([Measures].[Conteo operaciones],[TipoOperacion].[TipoOperacion].&amp;[5]), FORMAT_STRING='#,##0', VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Importe Por revisar] AS
+ ([Measures].[Importe],[TipoOperacion].[TipoOperacion].&amp;[5]), FORMAT_STRING='#,##0.0000;-#,##0.0000', VISIBLE=1;</Text>
+        </Command>
+      </Commands>
+    </MdxScript>
+  </MdxScripts>
+  <ErrorConfiguration>
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyConvertedToUnknown>ReportAndStop</NullKeyConvertedToUnknown>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+    <ddl200:CalculationError>ReportAndStop</ddl200:CalculationError>
+  </ErrorConfiguration>
+</Cube>

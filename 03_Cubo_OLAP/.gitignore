@@ -1,0 +1,5 @@
+.vs/
+**/obj/
+# En esta entrega las particiones están incluidas en OnlineRetail.cube.
+# La extensión instalada puede generar este archivo auxiliar sin contenido válido.
+**/OnlineRetail.partitions
